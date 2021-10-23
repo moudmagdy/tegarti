@@ -1,0 +1,262 @@
+@import './abstracts/variables'
+@import './abstracts/functions'
+@import './abstracts/mixins'
+@import './base/fonts'
+
+html
+    font-size: 16px
+    +scrollbar
+    scroll-behavior: smooth
+
+body
+    font-family: 'GraphikArabic_Regular', sans-serif
+    font-weight: normal
+    font-style: normal
+    +var(color, color-text-primary)
+    +var(font-size, default-font-size)
+    min-width: rem(380px)
+    overflow-x: hidden
+    overflow-y: auto
+
+    @media (max-width: 380px)
+        overflow-x: auto
+
+*
+    outline: none
+
+    &:focus
+        outline: none
+
+::selection
+    +var(background-color, color-brand)
+    color: #fff
+
+a
+    &:hover
+        text-decoration: none
+
+h1,
+h2,
+h3
+    font-family: 'GraphikArabic_SemiBold', sans-serif
+
+h4,
+h5
+    font-family: 'GraphikArabic_Medium', sans-serif
+
+h6
+    font-family: 'GraphikArabic_Regular', sans-serif
+
+header
+    position: fixed
+    top: 0
+    display: flex
+    align-items: center
+    width: 100%
+    height: rem(85px)
+    color: #fff
+    border-bottom: rem(2px) solid rgba(155, 195, 247, 0.10)
+    z-index: 999
+
+.header-logo
+    display: flex
+
+    svg
+        width: 155px
+        fill: #fff
+
+nav
+    display: flex
+    gap: rem(40px)
+
+    a
+        +flex-center
+        position: relative
+        line-height: 1.5
+        font-family: 'GraphikArabic_Medium', sans-serif
+        color: inherit
+        text-decoration: none
+
+        &::before
+            content: ""
+            position: absolute
+            background-color: #5194EB
+            inset: rem(-3px) rem(-10px)
+            border-radius: rem(15px)
+            z-index: -1
+            pointer-events: none
+            opacity: 0
+            transition: opacity 0.3s
+
+        &:hover
+            color: inherit
+
+            &::before
+                opacity: 1
+
+.language-switcher
+    display: flex
+    align-items: center
+    gap: rem(5px)
+    position: relative
+    line-height: 1.5
+    font-family: 'GraphikArabic_Medium', sans-serif
+    color: inherit
+    text-decoration: none
+
+    svg
+        flex: 0 0 auto
+        width: rem(15px)
+        fill: #fff
+
+    &::before
+        content: ""
+        position: absolute
+        background-color: #5194EB
+        inset: rem(-3px) rem(-10px)
+        border-radius: rem(15px)
+        z-index: -1
+        pointer-events: none
+        opacity: 0
+        transition: opacity 0.3s
+
+    &:hover
+        color: inherit
+
+        &::before
+            opacity: 1
+
+.account-area
+    display: flex
+    align-items: center
+    gap: rem(30px)
+    margin-inline-start: auto
+
+    .login--btn,
+    .register--btn
+        color: inherit
+        font-family: 'GraphikArabic_Medium', sans-serif
+
+    .login--btn
+        position: relative
+        line-height: 1.5
+        text-decoration: none
+
+        &::before
+            content: ""
+            position: absolute
+            background-color: #5194EB
+            inset: rem(-3px) rem(-10px)
+            border-radius: rem(15px)
+            z-index: -1
+            pointer-events: none
+            opacity: 0
+            transition: opacity 0.3s
+
+        &:hover
+            color: inherit
+
+            &::before
+                opacity: 1
+
+    .register--btn
+        text-decoration: none
+        border: rem(2px) solid #fff
+        border-radius: rem(21px)
+        padding: rem(7px) rem(20px)
+        transition: all 0.3s
+
+        &:hover
+            background-color: #C7E0FF
+            +var(color, color-brand)
+
+.hero
+    position: relative
+    min-height: 100vh
+    +var(background-color, color-brand)
+    z-index: 1
+    padding: rem(85px) 0 rem(40px)
+
+    &::before
+        content: ""
+        position: absolute
+        inset: 0
+        top: rem(85px)
+        background-image: url(../images/hero-bg.svg)
+        background-repeat: no-repeat
+        background-position-x: right
+        background-position-y: center
+        background-size: 60%
+        mix-blend-mode: multiply
+        z-index: -1
+
+    &::after
+        background-image: #66A9FF
+
+.hero-title
+    position: relative
+    display: flex
+    align-items: center
+    max-width: max-content
+    padding-block: rem(22px)
+    padding-inline-start: rem(55px)
+    padding-inline-end: rem(15px)
+    margin-top: rem(180px)
+    margin-bottom: rem(100px)
+
+    h2
+        font-size: calc(1.325rem + 3.5vw)
+        color: #fff
+        z-index: 1
+        margin: 0
+
+    svg
+        position: absolute
+        inset-inline-start: 0
+        inset-inline-end: 0
+        fill: rgba(255, 255, 255, 0.3)
+
+.hero-subtitle
+    color: #E5F138
+    font-size: 2rem
+
+.hero-description
+    color: #fff
+
+.hero-cta
+    display: flex
+    align-items: center
+    gap: rem(30px)
+    margin-top: rem(40px)
+
+.hero-cta-btn
+    flex: 0 0 auto
+    display: flex
+    align-items: center
+    height: rem(50px)
+    color: #fff
+    background-color: #0252BB
+    text-decoration: none
+    border-radius: rem(25px)
+    padding: 0 rem(26px)
+    transition: all 0.3s
+
+    &:hover
+        color: #fff
+        background-color: transparent
+        box-shadow: inset 0 0 0 3px #0252BB
+
+    &.sign-up--btn
+        gap: rem(8px)
+
+        svg
+            width: rem(18px)
+            fill: #fff
+
+        span
+            font-family: 'GraphikArabic_Medium', sans-serif
+            font-size: rem(18px)
+
+    &.google-play--btn
+        img
+            height: 30px

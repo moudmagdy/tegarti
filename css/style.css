@@ -1,0 +1,391 @@
+:root {
+  --animate-duration: 500ms;
+  --default-font-size: 1rem;
+  --main-menu-width: rem(200px);
+  --color-brand: #1877F2;
+  --color-brand-aman: #3DBEC8;
+  --color-bg: #EEF0F8;
+  --color-text-primary: #000;
+}
+
+@font-face {
+  font-family: "GraphikArabic_Regular";
+  src: url("../fonts/GraphikArabic-Regular.eot");
+  src: local("Graphik Arabic Regular"), local("GraphikArabic-Regular"), url("../fonts/GraphikArabic-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/GraphikArabic-Regular.woff2") format("woff2"), url("../fonts/GraphikArabic-Regular.woff") format("woff"), url("../fonts/GraphikArabic-Regular.ttf") format("truetype"), url("../fonts/GraphikArabic-Regular.svg#GraphikArabic-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GraphikArabic_Medium";
+  src: url("../fonts/GraphikArabic-Medium.eot");
+  src: local("Graphik Arabic Medium"), local("GraphikArabic-Medium"), url("../fonts/GraphikArabic-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/GraphikArabic-Medium.woff2") format("woff2"), url("../fonts/GraphikArabic-Medium.woff") format("woff"), url("../fonts/GraphikArabic-Medium.ttf") format("truetype"), url("../fonts/GraphikArabic-Medium.svg#GraphikArabic-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GraphikArabic_SemiBold";
+  src: url("../fonts/GraphikArabic-SemiBold.eot");
+  src: local("Graphik Arabic SemiBold"), local("GraphikArabic-SemiBold"), url("../fonts/GraphikArabic-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/GraphikArabic-SemiBold.woff2") format("woff2"), url("../fonts/GraphikArabic-SemiBold.woff") format("woff"), url("../fonts/GraphikArabic-SemiBold.ttf") format("truetype"), url("../fonts/GraphikArabic-SemiBold.svg#GraphikArabic-SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  font-size: 16px;
+  scrollbar-color: #61a0f2 rgba(0, 0, 0, 0.08);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #61a0f2;
+}
+html::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+html::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+body {
+  font-family: "GraphikArabic_Regular", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #000;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-size: var(--default-font-size);
+  min-width: 23.75rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+@media (max-width: 380px) {
+  body {
+    overflow-x: auto;
+  }
+}
+
+* {
+  outline: none;
+}
+*:focus {
+  outline: none;
+}
+
+::-moz-selection {
+  background-color: #1877F2;
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+::selection {
+  background-color: #1877F2;
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "GraphikArabic_SemiBold", sans-serif;
+}
+
+h4,
+h5 {
+  font-family: "GraphikArabic_Medium", sans-serif;
+}
+
+h6 {
+  font-family: "GraphikArabic_Regular", sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 5.3125rem;
+  color: #fff;
+  border-bottom: 0.125rem solid rgba(155, 195, 247, 0.1);
+  z-index: 999;
+}
+
+.header-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header-logo svg {
+  width: 155px;
+  fill: #fff;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2.5rem;
+}
+nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  line-height: 1.5;
+  font-family: "GraphikArabic_Medium", sans-serif;
+  color: inherit;
+  text-decoration: none;
+}
+nav a::before {
+  content: "";
+  position: absolute;
+  background-color: #5194EB;
+  inset: -0.1875rem -0.625rem;
+  border-radius: 0.9375rem;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+nav a:hover {
+  color: inherit;
+}
+nav a:hover::before {
+  opacity: 1;
+}
+
+.language-switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3125rem;
+  position: relative;
+  line-height: 1.5;
+  font-family: "GraphikArabic_Medium", sans-serif;
+  color: inherit;
+  text-decoration: none;
+}
+.language-switcher svg {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 0.9375rem;
+  fill: #fff;
+}
+.language-switcher::before {
+  content: "";
+  position: absolute;
+  background-color: #5194EB;
+  inset: -0.1875rem -0.625rem;
+  border-radius: 0.9375rem;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.language-switcher:hover {
+  color: inherit;
+}
+.language-switcher:hover::before {
+  opacity: 1;
+}
+
+.account-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.875rem;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+}
+.account-area .login--btn,
+.account-area .register--btn {
+  color: inherit;
+  font-family: "GraphikArabic_Medium", sans-serif;
+}
+.account-area .login--btn {
+  position: relative;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.account-area .login--btn::before {
+  content: "";
+  position: absolute;
+  background-color: #5194EB;
+  inset: -0.1875rem -0.625rem;
+  border-radius: 0.9375rem;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.account-area .login--btn:hover {
+  color: inherit;
+}
+.account-area .login--btn:hover::before {
+  opacity: 1;
+}
+.account-area .register--btn {
+  text-decoration: none;
+  border: 0.125rem solid #fff;
+  border-radius: 1.3125rem;
+  padding: 0.4375rem 1.25rem;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.account-area .register--btn:hover {
+  background-color: #C7E0FF;
+  color: #1877F2;
+  color: var(--color-brand);
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-color: #1877F2;
+  background-color: var(--color-brand);
+  z-index: 1;
+  padding: 5.3125rem 0 2.5rem;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 5.3125rem;
+  background-image: url(../images/hero-bg.svg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  background-size: 60%;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+.hero::after {
+  background-image: #66A9FF;
+}
+
+.hero-title {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  padding-block: 1.375rem;
+  -webkit-padding-start: 3.4375rem;
+          padding-inline-start: 3.4375rem;
+  -webkit-padding-end: 0.9375rem;
+          padding-inline-end: 0.9375rem;
+  margin-top: 11.25rem;
+  margin-bottom: 6.25rem;
+}
+.hero-title h2 {
+  font-size: calc(1.325rem + 3.5vw);
+  color: #fff;
+  z-index: 1;
+  margin: 0;
+}
+.hero-title svg {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+.hero-subtitle {
+  color: #E5F138;
+  font-size: 2rem;
+}
+
+.hero-description {
+  color: #fff;
+}
+
+.hero-cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.875rem;
+  margin-top: 2.5rem;
+}
+
+.hero-cta-btn {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.125rem;
+  color: #fff;
+  background-color: #0252BB;
+  text-decoration: none;
+  border-radius: 1.5625rem;
+  padding: 0 1.625rem;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.hero-cta-btn:hover {
+  color: #fff;
+  background-color: transparent;
+  -webkit-box-shadow: inset 0 0 0 3px #0252BB;
+          box-shadow: inset 0 0 0 3px #0252BB;
+}
+.hero-cta-btn.sign-up--btn {
+  gap: 0.5rem;
+}
+.hero-cta-btn.sign-up--btn svg {
+  width: 1.125rem;
+  fill: #fff;
+}
+.hero-cta-btn.sign-up--btn span {
+  font-family: "GraphikArabic_Medium", sans-serif;
+  font-size: 1.125rem;
+}
+.hero-cta-btn.google-play--btn img {
+  height: 30px;
+}
