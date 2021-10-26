@@ -34,6 +34,13 @@ body
 a
     &:hover
         text-decoration: none
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+    font-weight: normal
 
 h1,
 h2,
@@ -55,15 +62,34 @@ header
     width: 100%
     height: rem(85px)
     color: #fff
-    border-bottom: rem(2px) solid rgba(155, 195, 247, 0.10)
+    border-bottom: rem(2px) solid rgba(155, 195, 247, 0.35)
     z-index: 999
+    transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out
+
+    &.header--shrinked
+        height: rem(70px)
+        background-color: rgba(155, 195, 247, 0.35)
+        border-color: transparent
+
+        @supports (backdrop-filter: blur(15px))
+            backdrop-filter: blur(15px)
+
+        @supports not (backdrop-filter: blur(15px))
+            background-color: #c7ddf5
 
 .header-logo
     display: flex
+    max-width: rem(155px)
+    overflow: hidden
+    transition: max-width 0.3s cubic-bezier(0.92, 0.06, 0.18, 1.11)
+
+    .header--shrinked &
+        max-width: rem(45px)
 
     svg
-        width: 155px
-        fill: #fff
+        width: rem(155px)
+        min-width: rem(155px)
+        +var(fill, color-brand)
 
 nav
     display: flex
@@ -74,22 +100,23 @@ nav
         position: relative
         line-height: 1.5
         font-family: 'GraphikArabic_Medium', sans-serif
-        color: inherit
+        color: rgba(0, 0, 0, 0.6)
         text-decoration: none
+        transition: all 0.3s
 
         &::before
             content: ""
             position: absolute
-            background-color: #5194EB
             inset: rem(-3px) rem(-10px)
+            border: rem(1px) solid #fff
             border-radius: rem(15px)
             z-index: -1
             pointer-events: none
             opacity: 0
-            transition: opacity 0.3s
+            transition: all 0.3s
 
         &:hover
-            color: inherit
+            color: rgba(0, 0, 0, 0.9)
 
             &::before
                 opacity: 1
@@ -101,27 +128,32 @@ nav
     position: relative
     line-height: 1.5
     font-family: 'GraphikArabic_Medium', sans-serif
-    color: inherit
+    color: rgba(0, 0, 0, 0.6)
     text-decoration: none
+    transition: all 0.3s
 
     svg
         flex: 0 0 auto
         width: rem(15px)
-        fill: #fff
+        fill: rgba(0, 0, 0, 0.6)
+        transition: all 0.3s
 
     &::before
         content: ""
         position: absolute
-        background-color: #5194EB
         inset: rem(-3px) rem(-10px)
+        border: rem(1px) solid #fff
         border-radius: rem(15px)
         z-index: -1
         pointer-events: none
         opacity: 0
-        transition: opacity 0.3s
+        transition: all 0.3s
 
     &:hover
-        color: inherit
+        color: rgba(0, 0, 0, 0.9)
+
+        svg
+            fill: rgba(0, 0, 0, 0.9)
 
         &::before
             opacity: 1
@@ -134,46 +166,45 @@ nav
 
     .login--btn,
     .register--btn
-        color: inherit
-        font-family: 'GraphikArabic_Medium', sans-serif
+        +var(color, color-brand)
+        text-decoration: none
+
+        &:hover
+            +var(color, color-brand)
 
     .login--btn
         position: relative
         line-height: 1.5
-        text-decoration: none
+        transition: all 0.3s
 
         &::before
             content: ""
             position: absolute
-            background-color: #5194EB
             inset: rem(-3px) rem(-10px)
             border-radius: rem(15px)
+            border: rem(1px) solid #fff
             z-index: -1
             pointer-events: none
             opacity: 0
-            transition: opacity 0.3s
+            transition: all 0.3s
 
         &:hover
-            color: inherit
-
             &::before
                 opacity: 1
 
     .register--btn
-        text-decoration: none
-        border: rem(2px) solid #fff
-        border-radius: rem(21px)
-        padding: rem(7px) rem(20px)
+        border-radius: rem(10px)
+        box-shadow: inset 0 0 0 rem(1px) $color-brand
+        padding: rem(8px) rem(20px)
         transition: all 0.3s
 
         &:hover
-            background-color: #C7E0FF
-            +var(color, color-brand)
+            box-shadow: inset 0 0 0 rem(2px) $color-brand
 
 .hero
     position: relative
     min-height: 100vh
-    +var(background-color, color-brand)
+    +var(background-color, color-bg-hero)
     z-index: 1
     padding: rem(85px) 0 rem(40px)
 
@@ -194,6 +225,17 @@ nav
         background-image: #66A9FF
 
 .hero-title
+    margin-top: rem(180px)
+    margin-bottom: rem(100px)
+
+    h2
+        font-family: 'GraphikArabic_Regular', sans-serif
+        font-size: calc(1.325rem + 3.5vw)
+        color: rgba(0, 0, 0, 0.9)
+        z-index: 1
+        margin: 0
+
+.hero-subtitle
     position: relative
     display: flex
     align-items: center
@@ -201,14 +243,11 @@ nav
     padding-block: rem(22px)
     padding-inline-start: rem(55px)
     padding-inline-end: rem(15px)
-    margin-top: rem(180px)
-    margin-bottom: rem(100px)
 
-    h2
-        font-size: calc(1.325rem + 3.5vw)
-        color: #fff
-        z-index: 1
-        margin: 0
+    h3
+        font-family: 'GraphikArabic_Regular', sans-serif
+        font-size: 2rem
+        +var(color, color-brand)
 
     svg
         position: absolute
@@ -216,12 +255,9 @@ nav
         inset-inline-end: 0
         fill: rgba(255, 255, 255, 0.3)
 
-.hero-subtitle
-    color: #E5F138
-    font-size: 2rem
-
 .hero-description
-    color: #fff
+    font-size: rem(18px)
+    color: rgba(0, 0, 0, 0.6)
 
 .hero-cta
     display: flex
