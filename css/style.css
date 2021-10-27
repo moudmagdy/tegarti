@@ -589,6 +589,11 @@ nav a:hover::before {
           box-shadow: inset 0 0 0 0.125rem #1877F2;
 }
 
+section h3 {
+  font-size: 2.25rem;
+  margin-bottom: 3.125rem;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -664,14 +669,14 @@ nav a:hover::before {
 .hero-subtitle svg:not(.arrow) {
   position: absolute;
   inset-inline-start: 0;
-  inset-block-end: -0.3125rem;
+  width: 100%;
   fill: rgba(255, 255, 255, 0.5);
   z-index: -1;
 }
 .hero-subtitle svg.arrow {
   position: absolute;
   inset-inline-end: -5.625rem;
-  top: 100%;
+  top: calc(100% - 25px);
   fill: rgba(255, 255, 255, 0.5);
   width: 7.5rem;
 }
@@ -699,4 +704,34 @@ nav a:hover::before {
 }
 .hero-cta .google-play--btn img {
   width: 9.375rem;
+}
+
+.features {
+  padding: 7.5rem 0;
+}
+
+.features__tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.9375rem;
+}
+.features__tabs a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  text-decoration: none;
+  border: 0.1875rem solid rgba(0, 0, 0, 0.12);
+}
+.features__tabs a svg {
+  width: 1.375rem;
+  fill: rgba(0, 0, 0, 0.12);
 }

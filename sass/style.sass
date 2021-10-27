@@ -203,6 +203,11 @@ nav
         &:hover
             box-shadow: inset 0 0 0 rem(2px) $color-brand
 
+section
+    h3
+        font-size: 2.25rem
+        margin-bottom: rem(50px)
+
 .hero
     position: relative
     min-height: 100vh
@@ -261,14 +266,14 @@ nav
         &:not(.arrow)
             position: absolute
             inset-inline-start: 0
-            inset-block-end: rem(-5px)
+            width: 100%
             fill: rgba(255, 255, 255, 0.5)
             z-index: -1
 
         &.arrow
             position: absolute
             inset-inline-end: rem(-90px)
-            top: 100%
+            top: calc(100% - 25px)
             fill: rgba(255, 255, 255, 0.5)
             width: rem(120px)
 
@@ -290,3 +295,21 @@ nav
 
         img
             width: rem(150px)
+
+.features
+    padding: rem(120px) 0
+
+.features__tabs
+    display: flex
+    gap: rem(15px)
+
+    a
+        +flex-center
+        width: rem(60px)
+        height: rem(60px)
+        text-decoration: none
+        border: rem(3px) solid rgba(0, 0, 0, 0.12)
+
+        svg
+            width: rem(22px)
+            fill: rgba(0, 0, 0, 0.12)
