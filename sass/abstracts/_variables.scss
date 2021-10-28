@@ -1,17 +1,15 @@
 @use 'sass:map';
 
 $color-white: #fff;
-$color-brand-aman: #3DBEC8;
 $color-brand: #1877F2;
 $color-bg: #EEF0F8;
-$color-text-primary: #000;
+$color-text-primary: rgba(0, 0, 0, 0.9);
 $color-bg-hero: #DEEBF5;
 
 $variables: (
     default-font-size: 1rem,
     main-menu-width: #{rem(200px)},
     color-brand: $color-brand,
-    color-brand-aman: $color-brand-aman,
     color-bg: $color-bg,
     color-text-primary: $color-text-primary,
     color-bg-hero: $color-bg-hero
@@ -24,7 +22,6 @@ $variables: (
     --default-font-size: #{map-get($variables, default-font-size)};
     --main-menu-width: #{map-get($variables, main-menu-width)};
     --color-brand: #{map-get($variables, color-brand)};
-    --color-brand-aman: #{map-get($variables, color-brand-aman)};
     --color-bg: #{map-get($variables, color-bg)};
     --color-text-primary: #{map-get($variables, color-text-primary)};
     --color-bg-hero: #{map-get($variables, color-bg-hero)};
