@@ -300,18 +300,18 @@ section
     .btn
         padding-inline: 3rem
 
-    .google-play--btn
-        padding: 0.3572rem 1.3rem
+        &.google-play--btn
+            padding: 0.3572rem 1.3rem
 
-        img
-            width: rem(150px)
+            img
+                width: rem(150px)
 
 .features
-    background-image: linear-gradient(#fff, rgba(255, 251, 253, 0.9) 60%, rgba(222, 235, 245, 0.8) 100%)
+    background-image: linear-gradient(#fff, rgba(255, 251, 253, 0.95) 60%, rgba(222, 235, 245, 0.8) 100%)
     padding: rem(120px) 0
 
-    h3
-        margin-top: rem(120px)
+    .row:last-of-type:not(:only-child)
+        margin-top: rem(150px)
 
 .features__tabs
     display: flex
@@ -326,10 +326,18 @@ section
         text-decoration: none
         border: rem(3px) solid rgba(0, 0, 0, 0.12)
         border-radius: rem(10px)
+        transition: border-color 0.3s
 
         svg
             width: rem(26px)
             fill: rgba(0, 0, 0, 0.12)
+            transition: fill 0.3s
+
+        &:hover
+            border-color: rgba(0, 0, 0, 0.2)
+
+            svg
+                fill: rgba(0, 0, 0, 0.2)
 
         &.active
             +var(border-color, color-brand)
@@ -339,11 +347,6 @@ section
                 +var(fill, color-brand)
 
 .features__preview
-    display: flex
-
-    & > *
-        display: inline-flex
-
     &.has-two-devices
         position: relative
         padding-inline-start: rem(25px)
@@ -358,15 +361,15 @@ section
             inset-block-start: rem(50px)
 
 .tablet
-    position: relative
     width: rem(520px)
     height: rem(390px)
     background-color: #DEEBF5
     border-radius: rem(24px)
+    padding: rem(16px)
 
 .tablet__screen
-    position: absolute
-    inset: rem(16px)
+    width: 100%
+    height: 100%
     background-color: #fff
     border-radius: rem(6px)
 
@@ -382,10 +385,22 @@ section
     height: rem(360px)
     background-color: #DEEBF5
     border-radius: rem(22px)
+    padding: rem(11px)
+
+    &::after
+        content: ""
+        position: absolute
+        top: rem(11px)
+        left: 50%
+        width: rem(88px)
+        height: rem(12px)
+        background-color: #DEEBF5
+        border-radius: 0 0 rem(12px) rem(12px)
+        transform: translateX(-50%)
 
 .mobile__screen
-    position: absolute
-    inset: rem(11px)
+    width: 100%
+    height: 100%
     background-color: #fff
     border-radius: rem(16px)
 
@@ -394,3 +409,254 @@ section
         background-repeat: no-repeat
         background-size: rem(50px)
         background-position: center center
+
+.laptop
+    position: relative
+    width: rem(580px)
+    height: rem(380px)
+    padding: 0 rem(30px) rem(15px)
+    margin-top: rem(85px)
+
+    &::before
+        content: ""
+        position: absolute
+        inset: 0 rem(30px) rem(15px)
+        background-color: #DEEBF5
+        border-radius: rem(24px) rem(24px) 0 0
+
+    &::after
+        content: ""
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        height: rem(15px)
+        background-image: url(../images/laptop-footer.svg)
+        background-repeat: no-repeat
+
+.laptop__screen
+    position: absolute
+    inset: rem(22px) rem(45px) rem(37px)
+    background-color: #fff
+
+    &:empty
+        background-image: url(../images/logo.svg)
+        background-repeat: no-repeat
+        background-size: rem(80px)
+        background-position: center center
+
+.reports-count
+    font-family: 'GraphikArabic_SemiBold', sans-serif
+    font-size: rem(80px)
+    line-height: 1.1
+
+.download-btns
+    display: flex
+    gap: rem(20px)
+
+    .download-btn
+        background-color: #000
+        border: rem(1px) solid #A6A6A6
+        border-radius: rem(10px)
+        padding: 0.5rem 1rem
+
+        img
+            height: rem(34px)
+
+.target-clients
+    padding: rem(80px) 0 0
+
+    h3
+        text-align: center
+        margin-bottom: rem(30px)
+
+.business-type
+    flex: 0 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    gap: rem(15px)
+    width: rem(290px)
+    height: rem(290px)
+    background-color: #EEEEEE
+    border: rem(3px) solid #DDDEDF
+    border-radius: rem(30px)
+    padding: rem(15px)
+    transition: all 0.3s
+
+    .business-icon
+        +flex-center
+        position: relative
+        width: rem(150px)
+        height: rem(150px)
+        z-index: 1
+
+        &::before
+            content: ""
+            position: absolute
+            top: rem(15px)
+            width: 80%
+            height: 80%
+            background-color: #DEEBF5
+            border-radius: 50%
+            z-index: -1
+
+        img
+            width: 70%
+            height: 70%
+            transition: filter 0.3s
+
+    h4
+        text-align: center
+        font-size: rem(26px)
+        margin-bottom: 0
+
+.swiper
+    .swiper-wrapper
+        align-items: center
+
+        .swiper-slide
+            // display: flex
+            width: max-content !important
+            padding: rem(40px) 0
+            margin: 0 rem(-50px)
+            transform: scale(0.6)
+            transition: all 0.3s
+
+            &:not(.swiper-slide-active)
+                .business-icon
+                    &::before
+                        background-color: #F5F4F4
+
+                    img
+                        filter: contrast(1) sepia(100%) hue-rotate(107deg) brightness(1.4) saturate(0.28)
+
+            &.swiper-slide-prev,
+            &.swiper-slide-next
+                transform: scale(0.8)
+                z-index: 1
+
+            &.swiper-slide-active
+                transform: scale(1)
+                z-index: 2
+
+                .business-type
+                    background-color: #fff
+                    +var(border-color, color-brand)
+                    box-shadow: 0 rem(2px) rem(40px) rgb(24, 119, 242, 0.2)
+
+    .swiper-buttons
+        +flex-center
+        gap: rem(15px)
+        margin-top: rem(20px)
+        margin-bottom: rem(40px)
+
+    .swiper-button-prev,
+    .swiper-button-next
+        position: static
+        align-items: unset
+        width: rem(100px)
+        height: rem(48px)
+        border-radius: rem(24px)
+        padding: rem(12px) rem(16px)
+        margin-top: 0
+        transition: background-color 0.3s
+
+        svg
+            fill: #C3F0F7
+            transition: fill 0.3s
+
+        &:hover
+            background-color: #eceff5
+
+            svg
+                +var(fill, color-brand)
+
+        &:after,
+        &:after
+            display: none
+
+    .swiper-notification
+        display: none
+
+.merchant-type,
+.business-size
+    overflow: hidden
+    padding: rem(20px) 0
+    margin: 0 0 rem(30px)
+
+    .marquee
+        display: flex
+        width: 100%
+
+        ul
+            +flex-center
+            gap: rem(40px)
+            flex: 1 0 100%
+            list-style: none
+            padding: 0
+            margin: 0
+
+            li
+                +flex-center
+                gap: rem(10px)
+
+                .title
+                    font-family: 'GraphikArabic_Medium', sans-serif
+                    font-size: rem(22px)
+                    color: rgba(0, 0, 0, 0.6)
+
+.merchant-type
+    background-color: rgba(254, 236, 231, 0.2)
+
+    .marquee
+        animation: marquee-left 5s linear infinite
+
+    .icon
+        +flex-center
+        width: rem(35px)
+        height: rem(35px)
+        background-color: #A3E6F0
+        border-radius: 50%
+        padding: rem(7px)
+
+        svg
+            fill: #fff
+
+.business-size
+    background-color: #DEEBF5
+
+    .marquee
+        animation: marquee-right 5s linear infinite
+
+    .bullet
+        +flex-center
+        width: rem(12px)
+        height: rem(12px)
+        background-color: #A3E6F0
+        border-radius: 50%
+
+        &.bullet-sm
+            width: rem(20px)
+            height: rem(20px)
+
+        &.bullet-md
+            width: rem(28px)
+            height: rem(28px)
+
+        &.bullet-xl
+            width: rem(35px)
+            height: rem(35px)
+
+@keyframes marquee-left
+    0%
+        transform: translateX(0px)
+    100%
+        transform: translateX(-100%)
+
+@keyframes marquee-right
+    0%
+        transform: translateX(-100%)
+    100%
+        transform: translateX(0px)

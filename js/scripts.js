@@ -9,8 +9,8 @@ window.addEventListener('scroll', function () {
 });
 
 window.addEventListener('scroll', function () {
-    var element = document.querySelector('header');
-    // var position = element.getBoundingClientRect();
+    var element = document.querySelector('.features');
+    var position = element.getBoundingClientRect();
 
     // checking whether fully visible
     // if (position.top >= 0 && position.bottom <= window.innerHeight) {
@@ -18,16 +18,30 @@ window.addEventListener('scroll', function () {
     // }
 
     // checking for partial visibility
-    // if (position.top < window.innerHeight && position.bottom >= 0) {
-    // console.log('Element is partially visible in screen');
-    // document.querySelector('.has-two-devices').style.transform = "translateY(0)";
-    // } else {
-    // document.querySelector('.has-two-devices').style.transform = "translateY(-240px)";
-    // }
-
-    if (document.body.scrollTop >= element.offsetHeight) {
-        document.querySelector('.has-two-devices').style.transform = "translateY(-240px)";
-    } else {
+    if (position.top < window.innerHeight - 200 && position.bottom >= 0) {
+        // console.log('Element is partially visible in screen');
         document.querySelector('.has-two-devices').style.transform = "translateY(0)";
+    } else {
+        // console.log('Element is not visible in screen');
+        document.querySelector('.has-two-devices').style.transform = "translateY(-240px)";
     }
 });
+
+if (document.querySelector('.swiper')) {
+    var swiper = new Swiper('.swiper', {
+        slidesPerView: "auto",
+        centeredSlides: true,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        grabCursor: true,
+        // mousewheel: true,
+        keyboard: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        }
+    });
+}
