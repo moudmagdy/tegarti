@@ -612,6 +612,7 @@ section p:last-of-type {
   background-color: #DEEBF5;
   background-color: var(--color-bg-hero);
   z-index: 1;
+  overflow: hidden;
   padding: 5.3125rem 0 6.25rem;
 }
 .hero::before {
@@ -623,12 +624,24 @@ section p:last-of-type {
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
-  background-size: 60%;
+  background-size: 55%;
   mix-blend-mode: luminosity;
   z-index: -1;
 }
 .hero::after {
   background-image: #66A9FF;
+}
+.hero .orb-yellow {
+  position: absolute;
+  left: -200px;
+  bottom: -200px;
+  width: 1000px;
+  height: 1000px;
+  background-image: url(../images/orb-purple.svg);
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position: center center;
+  z-index: -2;
 }
 
 .hero-data {
