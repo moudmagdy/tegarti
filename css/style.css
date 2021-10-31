@@ -1,10 +1,9 @@
 :root {
-  --animate-duration: 500ms;
   --default-font-size: 1rem;
-  --main-menu-width: rem(200px);
   --color-brand: #1877F2;
   --color-bg: #EEF0F8;
   --color-text-primary: rgba(0, 0, 0, 0.9);
+  --color-text-secondary: rgba(0, 0, 0, 0.6);
   --color-bg-hero: #DEEBF5;
 }
 
@@ -453,6 +452,7 @@ nav a {
   line-height: 1.5;
   font-family: "GraphikArabic_Medium", sans-serif;
   color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
   text-decoration: none;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -490,6 +490,7 @@ nav a:hover::before {
   line-height: 1.5;
   font-family: "GraphikArabic_Medium", sans-serif;
   color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
   text-decoration: none;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
@@ -501,6 +502,7 @@ nav a:hover::before {
           flex: 0 0 auto;
   width: 0.9375rem;
   fill: rgba(0, 0, 0, 0.6);
+  fill: var(--color-text-secondary);
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -522,7 +524,8 @@ nav a:hover::before {
   color: rgba(0, 0, 0, 0.9);
 }
 .language-switcher:hover svg {
-  fill: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.9);
+  color: var(--color-text-primary);
 }
 .language-switcher:hover::before {
   opacity: 1;
@@ -693,6 +696,7 @@ section p:last-of-type {
 .hero-description {
   font-size: 1.125rem;
   color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -921,6 +925,7 @@ section p:last-of-type {
 }
 .target-clients h3 {
   text-align: center;
+  padding: 0 0.9375rem;
   margin-bottom: 1.875rem;
 }
 
@@ -1094,7 +1099,6 @@ section p:last-of-type {
 .business-size {
   overflow: hidden;
   padding: 1.25rem 0;
-  margin: 0 0 1.875rem;
 }
 .merchant-type .marquee,
 .business-size .marquee {
@@ -1140,10 +1144,12 @@ section p:last-of-type {
   font-family: "GraphikArabic_Medium", sans-serif;
   font-size: 1.375rem;
   color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
 }
 
 .merchant-type {
   background-color: rgba(254, 236, 231, 0.2);
+  margin: 0 0 1.875rem;
 }
 .merchant-type .marquee {
   -webkit-animation: marquee-left 5s linear infinite;
@@ -1244,4 +1250,252 @@ section p:last-of-type {
     -webkit-transform: translateX(0px);
             transform: translateX(0px);
   }
+}
+.subscriptions {
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f3f5), to(rgba(222, 235, 245, 0.6)));
+  background-image: -o-linear-gradient(#f7f3f5, rgba(222, 235, 245, 0.6));
+  background-image: linear-gradient(#f7f3f5, rgba(222, 235, 245, 0.6));
+  z-index: 1;
+  overflow: hidden;
+  padding: 10rem 0;
+}
+.subscriptions::before {
+  content: "";
+  position: absolute;
+  inset: 5rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.75rem;
+  z-index: -1;
+}
+@supports ((-webkit-backdrop-filter: blur(50px)) or (backdrop-filter: blur(50px))) {
+  .subscriptions::before {
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+  }
+}
+.subscriptions .orb {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 700px;
+  height: 700px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f1b2d2), to(#b5c6d3));
+  background-image: -o-linear-gradient(#f1b2d2, #b5c6d3);
+  background-image: linear-gradient(#f1b2d2, #b5c6d3);
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: -2;
+}
+.subscriptions h3 {
+  text-align: center;
+  padding: 0 0.9375rem;
+  margin-bottom: 3.75rem;
+}
+
+.plan-switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  margin: 0 auto 2.5rem;
+}
+.plan-switch label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #DEEBF5;
+          box-shadow: inset 0 0 0 0.125rem #DEEBF5;
+  border-radius: 1.40625rem;
+  cursor: pointer;
+}
+.plan-switch label::before {
+  content: "";
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 7.1875rem;
+  background-color: #1877F2;
+  background-color: var(--color-brand);
+  border-radius: 1.40625rem;
+  z-index: 1;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.plan-switch label span {
+  width: 7.1875rem;
+  text-align: center;
+  font-family: "GraphikArabic_Medium", sans-serif;
+  border-radius: 1.375rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 2;
+  padding: 0.657rem 0.85rem;
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.plan-switch label span:first-child {
+  color: #fff;
+}
+.plan-switch label span:last-child {
+  color: rgba(0, 0, 0, 0.9);
+}
+.plan-switch input[type=checkbox] {
+  display: none;
+}
+[dir=rtl] .plan-switch input[type=checkbox]:checked + label::before {
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+[dir=ltr] .plan-switch input[type=checkbox]:checked + label::before {
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.plan-switch input[type=checkbox]:checked + label span:last-child {
+  color: #fff;
+}
+.plan-switch input[type=checkbox]:checked + label span:first-child {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.pricing-plans {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  max-width: 62rem;
+  padding: 0 0.9375rem;
+  margin: 0 auto;
+}
+
+.plan {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33.3333% - 10.6666px);
+          flex: 0 0 calc(33.3333% - 10.6666px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  border: 0.125rem solid #E2E2E2;
+  border-radius: 1rem;
+  padding: 1.5625rem 1.875rem;
+}
+.plan h4 {
+  font-size: 2.125rem;
+  margin-bottom: 0.3125rem;
+}
+.plan p {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
+}
+.plan .price-before-discount {
+  font-family: "GraphikArabic_Medium", sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+}
+.plan .discounted-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  gap: 0.3125rem;
+  margin-bottom: 1.875rem;
+}
+.plan .discounted-price span {
+  color: #000;
+}
+.plan .discounted-price span:first-of-type {
+  line-height: 1.2;
+  font-family: "GraphikArabic_SemiBold", sans-serif;
+  font-size: 2.125rem;
+}
+.plan .discounted-price span:last-of-type {
+  font-family: "GraphikArabic_Medium", sans-serif;
+  font-size: 0.75rem;
+}
+.plan .btn {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
+}
+.plan .show-more--btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.625rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-decoration: none;
+  margin-top: 0.9375rem;
+}
+.plan .show-more--btn span {
+  font-family: "GraphikArabic_Medium", sans-serif;
+  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-text-secondary);
+  -webkit-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.plan .show-more--btn svg {
+  width: 1rem;
+  fill: rgba(0, 0, 0, 0.6);
+  fill: var(--color-text-secondary);
+  -webkit-transition: fill 0.3s;
+  -o-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+.plan .show-more--btn:hover span {
+  color: #1877F2;
+  color: var(--color-brand);
+}
+.plan .show-more--btn:hover svg {
+  fill: #1877F2;
+  fill: var(--color-brand);
+}
+
+.contact {
+  padding: 5rem 0;
+}
+.contact h3 {
+  line-height: 1;
+  margin-bottom: 0.3125rem;
+}
+.contact .full-support {
+  display: block;
+  line-height: 1.2;
+  font-family: "GraphikArabic_SemiBold", sans-serif;
+  font-size: 5.625rem;
+  margin-bottom: 1.5625rem;
 }
