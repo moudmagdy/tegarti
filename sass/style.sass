@@ -213,7 +213,8 @@ section
 
     p
         max-width: rem(440px)
-        margin-bottom: 0
+        font-size: rem(18px)
+        margin-bottom: rem(20px)
 
         &:last-of-type
             margin-bottom: rem(30px)
@@ -222,7 +223,6 @@ section
     position: relative
     min-height: 100vh
     +var(background-color, color-bg-hero)
-    // background-color: #f4f7f9
     z-index: 1
     overflow: hidden
     padding: rem(85px) 0 rem(100px)
@@ -306,7 +306,7 @@ section
     +var(color, color-text-secondary)
     margin-bottom: rem(20px)
 
-.hero-cta
+.cta-btns
     display: flex
     align-items: center
     gap: rem(30px)
@@ -851,6 +851,26 @@ section
 .contact
     padding: rem(80px) 0
 
+    .contact-artwork
+        position: relative
+        display: flex
+        max-width: rem(390px)
+        margin-top: rem(30px)
+        margin-inline-start: auto
+        margin-inline-end: rem(60px)
+
+        &::before
+            content: ""
+            position: absolute
+            top: 0
+            inset-inline-end: 0
+            width: rem(600px)
+            height: rem(600px)
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 995 995'%3E%3CradialGradient id='SVGID_1_' cx='-461.2668' cy='1037.6787' r='0.5' gradientTransform='matrix(1137 0 0 -1137 524957.8125 1180338.25)' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.432' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.833' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3Cstop offset='1' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3C/radialGradient%3E%3Cpath opacity='0.84' fill='url(%23SVGID_1_)' enable-background='new ' d='M497.5-71L497.5-71c314,0,568.5,254.5,568.5,568.5l0,0 c0,314-254.5,568.5-568.5,568.5l0,0C183.5,1066-71,811.5-71,497.5l0,0C-71,183.5,183.5-71,497.5-71z'/%3E%3C/svg%3E")
+            background-repeat: no-repeat
+            background-position: center center
+            z-index: -1
+
     h3
         line-height: 1
         margin-bottom: rem(5px)
@@ -860,4 +880,157 @@ section
         line-height: 1.2
         font-family: 'GraphikArabic_SemiBold', sans-serif
         font-size: rem(90px)
-        margin-bottom: rem(25px)
+        margin-bottom: rem(40px)
+
+footer
+    display: flex
+    flex-direction: column
+    background-color: #136BDD
+    color: #fff
+
+    .top-bar
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: rem(50px) 0
+
+    .bottom-bar
+        border-top: rem(2px) solid rgba(155, 195, 247, 0.35)
+        padding: rem(18px) 0
+
+        @media (max-width: 992px)
+            text-align: center
+
+    h3,
+    p
+        text-align: center
+
+    h3
+        font-size: calc(1.375rem + 1.7vw)
+        margin-bottom: rem(15px)
+
+    p
+        color: #DEEBF5
+        margin-bottom: rem(35px)
+
+    .footer__link
+        display: inline-flex
+        gap: rem(5px)
+        font-size: rem(12px)
+        color: #C3F0F7
+        text-decoration: none
+        transition: color 0.3s ease-in-out
+
+        svg
+            width: rem(16px)
+            height: auto
+            fill: #C3F0F7
+
+        &:hover
+            color: #fff
+
+    nav
+        display: inline-flex
+
+        @media (max-width: 992px)
+            margin-bottom: rem(20px)
+
+        a
+            color: #C3F0F7
+
+            &:hover
+                color: #fff
+
+            &::before
+                z-index: 1
+
+    .cta-btns
+        justify-content: center
+
+        @media (max-width: 992px)
+            flex-direction: column
+
+        .btn-primary
+            background-color: #136BDD
+            border-color: #136BDD
+            box-shadow: 0 0 0 rem(1px) #fff
+
+            &:hover
+                background-color: darken(#136BDD, 5%)
+                border-color: darken(#136BDD, 5%)
+
+    .footer-logo
+        display: inline-flex
+
+        @media (max-width: 992px)
+            margin-bottom: rem(20px)
+
+        svg
+            width: rem(50px)
+            height: auto
+            fill: #DEEBF5
+
+        &:hover
+            svg
+                fill: #fff
+
+    .social-links
+        display: flex
+        align-items: center
+        gap: rem(12px)
+        list-style: none
+        padding: 0
+        margin: 0
+
+        @media (max-width: 992px)
+            margin-bottom: rem(15px)
+
+        li
+            a
+                +flex-center
+                width: rem(20px)
+                height: rem(20px)
+                text-decoration: none
+
+                svg
+                    width: auto
+                    height: 100%
+                    fill: #C3F0F7
+                    transition: fill 0.3s ease-in-out
+
+                &:hover
+                    svg
+                        fill: #fff
+
+    .copyrights
+        font-size: rem(12px)
+        color: #C3F0F7
+
+        @media (max-width: 992px)
+            margin: rem(20px) auto 0
+
+    .footer__links
+        display: flex
+        align-items: center
+        gap: rem(20px)
+        list-style: none
+        padding: 0
+        margin: 0
+
+        @media (max-width: 992px)
+            margin: 0 auto
+
+        li
+            display: flex
+            align-items: center
+
+            &:not(:last-child)
+                position: relative
+
+                &::after
+                    content: ""
+                    position: absolute
+                    inset-inline-end: rem(-11px)
+                    width: rem(1.5px)
+                    height: rem(12px)
+                    background-color: #C3F0F7
