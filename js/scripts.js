@@ -24,21 +24,26 @@ window.addEventListener('scroll', function () {
     // checking for partial visibility
     if (position.top < window.innerHeight - 200 && position.bottom >= 0) {
         // console.log('Element is partially visible in screen');
-        document.querySelector('.has-two-devices').style.transform = "translateY(0)";
+        document.querySelector('.has-two-devices').style.transform = 'translateY(0)';
     } else {
         // console.log('Element is not visible in screen');
-        document.querySelector('.has-two-devices').style.transform = "translateY(-240px)";
+        document.querySelector('.has-two-devices').style.transform = 'translateY(-240px)';
     }
 });
 
 if (document.querySelector('.swiper')) {
     var swiper = new Swiper('.swiper', {
-        slidesPerView: "auto",
+        slidesPerView: 'auto',
         centeredSlides: true,
         loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            dynamicBullets: true,
+            clickable: true,
+        },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
         grabCursor: true,
         // mousewheel: true,
@@ -53,3 +58,26 @@ if (document.querySelector('.swiper')) {
 // document.onmousemove = function (e) {
 //     document.querySelector('.orb').style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
 // }
+
+const planMoreBtns = document.querySelectorAll('.show-more--btn');
+
+planMoreBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        btn.closest('.plan').classList.toggle('details--shown');
+        if (btn.closest('.plan').classList.contains('details--shown')) {
+            btn.previousElementSibling.style.maxHeight = btn.previousElementSibling.scrollHeight + 'px';
+        } else {
+            btn.previousElementSibling.style.maxHeight = 0;
+        }
+    });
+});
+
+const mobileMenuToggle = document.querySelectorAll('.mobile-menu__toggle');
+
+mobileMenuToggle.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('body').classList.toggle('mobile-menu--shown');
+    });
+});

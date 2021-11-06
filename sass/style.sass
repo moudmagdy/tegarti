@@ -116,11 +116,12 @@ nav
             opacity: 0
             transition: all 0.3s
 
-        &:hover
-            color: rgba(0, 0, 0, 0.9)
+        @media (hover: hover)
+            &:hover
+                color: rgba(0, 0, 0, 0.9)
 
-            &::before
-                opacity: 1
+                &::before
+                    opacity: 1
 
 .language-switcher
     display: flex
@@ -171,8 +172,9 @@ nav
         +var(color, color-brand)
         text-decoration: none
 
-        &:hover
-            +var(color, color-brand)
+        @media (hover: hover)
+            &:hover
+                +var(color, color-brand)
 
     .login--btn
         position: relative
@@ -190,9 +192,10 @@ nav
             opacity: 0
             transition: all 0.3s
 
-        &:hover
-            &::before
-                opacity: 1
+        @media (hover: hover)
+            &:hover
+                &::before
+                    opacity: 1
 
     .register--btn
         border-radius: rem(10px)
@@ -200,21 +203,122 @@ nav
         padding: rem(8px) rem(20px)
         transition: all 0.3s
 
-        &:hover
-            box-shadow: inset 0 0 0 rem(2px) $color-brand
+        @media (hover: hover)
+            &:hover
+                box-shadow: inset 0 0 0 rem(2px) $color-brand
+
+.mobile-menu__toggle
+    display: inline-flex
+    align-self: center
+    margin-inline-start: auto
+
+    svg
+        width: rem(22px)
+        height: rem(22px)
+        +var(fill, color-text-secondary)
+
+.mobile-menu--shown
+    overflow: hidden
+
+    @media (min-width: 992px)
+        overflow: auto
+
+.mobile-menu
+    position: fixed
+    top: 0
+    inset-inline-start: 100%
+    display: none
+    width: 100%
+    height: 100%
+    +var(background-color, color-brand)
+    z-index: 999
+    pointer-events: none
+    opacity: 0
+    padding: rem(30px) rem(40px)
+    transition: all 0.3s cubic-bezier(1, -0.29, 0.05, 1.58)
+
+    @media (max-width: 992px)
+        display: block
+
+    .header-logo
+        svg
+            fill: #fff
+
+    .mobile-menu__toggle
+        svg
+            fill: #fff
+
+    nav
+        flex-direction: column
+        gap: rem(20px)
+        margin-bottom: 50px
+
+        a
+            justify-content: flex-start
+            color: #fff
+
+            &::before
+                display: none
+
+    .language-switcher
+        color: #fff
+
+        &::before
+            display: none
+
+        svg
+            fill: #fff
+
+    .account-area
+        flex-direction: column
+        align-items: flex-start
+
+        .login--btn,
+        .register--btn
+            color: #fff
+
+        .login--btn
+            &::before
+                display: none
+
+            &:hover
+                color: rgba(255, 255, 255, 0.8)
+
+        .register--btn
+            box-shadow: inset 0 0 0 rem(2px) #fff
+
+            &:hover
+                color: rgba(255, 255, 255, 0.8)
+                box-shadow: inset 0 0 0 rem(2px) rgba(255, 255, 255, 0.8)
+
+    .mobile-menu--shown &
+        pointer-events: auto
+        opacity: 1
+        transform: translateX(-100%)
 
 section
     h3
         font-size: 2.25rem
         margin-bottom: rem(50px)
 
+        @media (max-width: 992px)
+            font-size: 2rem
+
+        @media (max-width: 768px)
+            font-size: 1.75rem
+
     h4
+        +var(color, color-brand)
         margin-bottom: rem(15px)
 
     p
         max-width: rem(440px)
         font-size: rem(18px)
         margin-bottom: rem(20px)
+
+        @media (max-width: 768px)
+            font-size: rem(16px)
+            margin-bottom: rem(15px)
 
         &:last-of-type
             margin-bottom: rem(30px)
@@ -329,6 +433,7 @@ section
 
 .features__tabs
     display: flex
+    flex-wrap: wrap
     gap: rem(25px)
     margin-bottom: rem(40px)
 
@@ -340,7 +445,7 @@ section
         text-decoration: none
         border: rem(3px) solid rgba(0, 0, 0, 0.12)
         border-radius: rem(10px)
-        transition: border-color 0.3s
+        transition: all 0.3s ease-in-out
 
         svg
             width: rem(26px)
@@ -355,19 +460,26 @@ section
 
         &.active
             +var(border-color, color-brand)
-            transform: scale(1.3)
+            background-color: rgba(24, 119, 242, 0.08)
 
             svg
                 +var(fill, color-brand)
 
 .features__preview
+    position: relative
+
     &.has-two-devices
-        position: relative
-        padding-inline-start: rem(25px)
+        max-width: max-content
         z-index: 998
-        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08))
+        // filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08))
+        padding-inline-start: rem(25px)
+        padding-bottom: rem(20px)
+        margin-inline-start: auto
         transform: translateY(-240px)
         transition: transform 0.5s
+
+        @media (max-width: 992px)
+            margin-bottom: rem(40px)
 
         .mobile
             position: absolute
@@ -377,7 +489,7 @@ section
 .tablet
     width: rem(520px)
     height: rem(390px)
-    background-color: #DEEBF5
+    background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px)
     padding: rem(16px)
 
@@ -386,6 +498,7 @@ section
     height: 100%
     background-color: #fff
     border-radius: rem(6px)
+    overflow: hidden
 
     &:empty
         background-image: url(../images/logo.svg)
@@ -393,30 +506,35 @@ section
         background-size: rem(80px)
         background-position: center center
 
+    img
+        width: 100%
+        height: 100%
+
 .mobile
     position: relative
     width: rem(180px)
     height: rem(360px)
-    background-color: #DEEBF5
-    border-radius: rem(22px)
+    background-color: rgba(0, 0, 0, 0.9)
+    border-radius: rem(24px)
     padding: rem(11px)
 
-    &::after
-        content: ""
-        position: absolute
-        top: rem(11px)
-        left: 50%
-        width: rem(88px)
-        height: rem(12px)
-        background-color: #DEEBF5
-        border-radius: 0 0 rem(12px) rem(12px)
-        transform: translateX(-50%)
+    // &::after
+    //     content: ""
+    //     position: absolute
+    //     top: rem(11px)
+    //     left: 50%
+    //     width: rem(88px)
+    //     height: rem(12px)
+    //     background-color: rgba(0, 0, 0, 0.9)
+    //     border-radius: 0 0 rem(12px) rem(12px)
+    //     transform: translateX(-50%)
 
 .mobile__screen
     width: 100%
     height: 100%
     background-color: #fff
-    border-radius: rem(16px)
+    border-radius: rem(14px)
+    overflow: hidden
 
     &:empty
         background-image: url(../images/logo.svg)
@@ -424,18 +542,32 @@ section
         background-size: rem(50px)
         background-position: center center
 
+    img
+        width: 100%
+        height: 100%
+
 .laptop
     position: relative
-    width: rem(580px)
-    height: rem(380px)
-    padding: 0 rem(30px) rem(15px)
+    width: rem(550px)
+    max-width: rem(550px)
+    height: rem(350px)
+    padding: 0 rem(20px) rem(15px)
     margin-top: rem(85px)
+    margin-inline-end: auto
+
+    @media (max-width: 1280px)
+        width: 100%
+        height: 280px
+
+    @media (max-width: 992px)
+        height: rem(340px)
+        margin-bottom: rem(40px)
 
     &::before
         content: ""
         position: absolute
-        inset: 0 rem(30px) rem(15px)
-        background-color: #DEEBF5
+        inset: 0 rem(20px) rem(15px)
+        background-color: rgba(0, 0, 0, 0.9)
         border-radius: rem(24px) rem(24px) 0 0
 
     &::after
@@ -450,14 +582,22 @@ section
 
 .laptop__screen
     position: absolute
-    inset: rem(22px) rem(45px) rem(37px)
+    inset: rem(22px) rem(35px) rem(37px)
     background-color: #fff
+    overflow: hidden
+
+    @media (max-width: 1280px)
+        inset: rem(20px) rem(35px) rem(35px)
 
     &:empty
         background-image: url(../images/logo.svg)
         background-repeat: no-repeat
         background-size: rem(80px)
         background-position: center center
+
+    img
+        width: 100%
+        height: 100%
 
 .reports-count
     font-family: 'GraphikArabic_SemiBold', sans-serif
@@ -486,66 +626,58 @@ section
         margin-bottom: rem(30px)
 
 .business-type
+    position: relative
     flex: 0 0 auto
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
     gap: rem(15px)
-    width: rem(290px)
-    height: rem(290px)
-    background-color: #EEEEEE
-    border: rem(3px) solid #DDDEDF
+    width: rem(270px)
+    height: rem(270px)
+    background-color: #fff
+    border: rem(3px) solid #E2E2E2
     border-radius: rem(30px)
+    z-index: 1
     padding: rem(15px)
     transition: all 0.3s
 
+    &::before
+        content: ""
+        position: absolute
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        z-index: -1
+
     .business-icon
         +flex-center
-        position: relative
         width: rem(150px)
         height: rem(150px)
-        z-index: 1
 
-        &::before
-            content: ""
-            position: absolute
-            top: rem(15px)
-            width: 80%
-            height: 80%
-            background-color: #DEEBF5
-            border-radius: 50%
-            z-index: -1
-
-        img
-            width: 70%
-            height: 70%
-            transition: filter 0.3s
+        svg
+            width: 100%
+            height: 100%
+            fill: #C5D0D9
+            transition: fill 0.3s ease-in-out
 
     h4
+        font-size: rem(24px)
         text-align: center
-        font-size: rem(26px)
+        color: rgba(197, 208, 217, 0.8)
         margin-bottom: 0
+        transition: color 0.3s ease-in-out
 
 .swiper
     .swiper-wrapper
         align-items: center
 
         .swiper-slide
-            // display: flex
             width: max-content !important
             padding: rem(40px) 0
             margin: 0 rem(-50px)
             transform: scale(0.6)
             transition: all 0.3s
-
-            &:not(.swiper-slide-active)
-                .business-icon
-                    &::before
-                        background-color: #F5F4F4
-
-                    img
-                        filter: contrast(1) sepia(100%) hue-rotate(107deg) brightness(1.4) saturate(0.28)
 
             &.swiper-slide-prev,
             &.swiper-slide-next
@@ -557,29 +689,38 @@ section
                 z-index: 2
 
                 .business-type
-                    background-color: #fff
                     +var(border-color, color-brand)
-                    box-shadow: 0 rem(2px) rem(40px) rgb(24, 119, 242, 0.2)
 
-    .swiper-buttons
+                    &::before
+                        background-image: radial-gradient(#C3F0F7 0%, #fff 70%, transparent 100%)
+
+                .business-icon
+                    svg
+                        +var(fill, color-brand)
+
+                h4
+                    +var(color, color-text-primary)
+
+    .slider-nav
         +flex-center
         gap: rem(15px)
-        margin-top: rem(20px)
         margin-bottom: rem(40px)
 
     .swiper-button-prev,
     .swiper-button-next
         position: static
         align-items: unset
-        width: rem(100px)
+        width: rem(80px)
         height: rem(48px)
         border-radius: rem(24px)
         padding: rem(12px) rem(16px)
         margin-top: 0
-        transition: background-color 0.3s
+        transition: background-color 0.3s ease-in-out, border-radius 0.2s ease-in-out
 
         svg
-            fill: #C3F0F7
+            fill: #DEEBF5
+            width: rem(25px)
+            height: auto
             transition: fill 0.3s
 
         &:hover
@@ -588,9 +729,26 @@ section
             svg
                 +var(fill, color-brand)
 
+        &:active
+            border-radius: rem(12px)
+
         &:after,
         &:after
             display: none
+
+    .swiper-pagination
+        position: static
+        transform: none !important
+
+        .swiper-pagination-bullet
+            flex: 0 0 auto
+            background-color: #DEEBF5
+            opacity: 1
+            margin: 0 rem(2px)
+
+            &.swiper-pagination-bullet-active
+                +var(background-color, color-brand)
+                cursor: default !important
 
     .swiper-notification
         display: none
@@ -612,19 +770,25 @@ section
             padding: 0
             margin: 0
 
+            @media (max-width: 768px)
+                gap: rem(15px)
+
             li
                 +flex-center
                 gap: rem(10px)
+
+                @media (max-width: 768px)
+                    gap: rem(6px)
 
                 .title
                     font-family: 'GraphikArabic_Medium', sans-serif
                     font-size: rem(22px)
                     +var(color, color-text-secondary)
 
-.merchant-type
-    background-color: rgba(254, 236, 231, 0.2)
-    margin: 0 0 rem(30px)
+                    @media (max-width: 768px)
+                        font-size: rem(18px)
 
+.merchant-type
     .marquee
         animation: marquee-left 5s linear infinite
 
@@ -632,7 +796,7 @@ section
         +flex-center
         width: rem(35px)
         height: rem(35px)
-        background-color: #A3E6F0
+        +var(background-color, color-brand)
         border-radius: 50%
         padding: rem(7px)
 
@@ -640,7 +804,7 @@ section
             fill: #fff
 
 .business-size
-    background-color: #DEEBF5
+    background-color: rgba(255, 224, 94, 0.2)
 
     .marquee
         animation: marquee-right 5s linear infinite
@@ -649,7 +813,7 @@ section
         +flex-center
         width: rem(12px)
         height: rem(12px)
-        background-color: #A3E6F0
+        +var(background-color, color-brand)
         border-radius: 50%
 
         &.bullet-sm
@@ -661,8 +825,20 @@ section
             height: rem(28px)
 
         &.bullet-xl
-            width: rem(35px)
-            height: rem(35px)
+            align-items: flex-start
+            gap: rem(4px)
+            width: rem(28px)
+            height: rem(28px)
+            background-color: transparent
+
+            &::before,
+            &::after
+                content: ""
+                width: rem(12px)
+                height: rem(12px)
+                +var(background-color, color-brand)
+                border-radius: 50%
+                box-shadow: 0 rem(16px) 0 $color-brand
 
 @keyframes marquee-left
     0%
@@ -678,32 +854,17 @@ section
 
 .subscriptions
     position: relative
-    background-image: linear-gradient(#f7f3f5, rgb(222, 235, 245, 0.6))
     z-index: 1
     overflow: hidden
-    padding: rem(160px) 0
+    padding: rem(80px) 0
 
     &::before
         content: ""
         position: absolute
-        inset: rem(80px) rem(40px)
-        background-color: rgba(255, 255, 255, 0.4)
-        border-radius: rem(12px)
+        inset: 0
+        background-image: linear-gradient(#FFFFFF, #FCFAE6)
+        opacity: 0.5
         z-index: -1
-
-        @supports (backdrop-filter: blur(50px))
-            backdrop-filter: blur(50px)
-
-    .orb
-        position: absolute
-        top: 50px
-        left: 20px
-        width: 700px
-        height: 700px
-        background-image: linear-gradient(#f1b2d2, #b5c6d3)
-        opacity: 0.2
-        border-radius: 50%
-        z-index: -2
 
     h3
         text-align: center
@@ -773,8 +934,11 @@ section
 
 .pricing-plans
     display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: flex-start
     gap: rem(16px)
-    max-width: rem(992px)
+    max-width: rem(1100px)
     padding: 0 rem(15px)
     margin: 0 auto
 
@@ -782,10 +946,19 @@ section
     flex: 0 0 calc(33.3333% - 10.6666px)
     display: flex
     flex-direction: column
+    max-width: rem(346px)
     background-color: #fff
     border: rem(2px) solid #E2E2E2
     border-radius: rem(16px)
-    padding: rem(25px) rem(30px)
+    overflow: hidden
+    padding: rem(25px) rem(30px) 0
+    transition: border-color 0.3s ease-in-out
+
+    @media (max-width: 992px)
+        flex: 0 0 calc(50% - 8px)
+
+    @media (max-width: 768px)
+        flex: 0 0 100%
 
     h4
         font-size: rem(34px)
@@ -823,33 +996,73 @@ section
         border-radius: rem(8px)
         padding: 0.625rem 0.75rem
 
+    .plan__details
+        display: flex
+        flex-direction: column
+        list-style: none
+        max-height: 0
+        overflow: hidden
+        padding: 0
+        margin: rem(40px) 0 0
+        transition: max-height 0.2s ease-in-out
+
+        li
+            display: flex
+            align-items: center
+            gap: rem(10px)
+            font-size: rem(14px)
+            border-top: rem(2px) solid #E2E2E2
+            padding: rem(15px) 0
+
+            &::before
+                content: ""
+                width: rem(14px)
+                height: rem(12px)
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(0, 0, 0, 0.95)' viewBox='0 0 17 11.6'%3E%3Cpath d='M6.1,11.6L0,5.4l0.7-0.7l5.4,5.4L16.3,0L17,0.7L6.1,11.6z'%3E%3C/path%3E%3C/svg%3E")
+                background-repeat: no-repeat
+
     .show-more--btn
         display: flex
         align-items: center
+        justify-content: space-between
         gap: rem(10px)
-        width: max-content
         text-decoration: none
-        margin-top: rem(15px)
+        border-top: rem(2px) solid #E2E2E2
+        padding: rem(15px) rem(30px)
+        margin-inline: rem(-30px)
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out
 
         span
             font-family: 'GraphikArabic_Medium', sans-serif
+            font-size: rem(14px)
             +var(color, color-text-secondary)
-            transition: color 0.3s
+            transition: color 0.3s ease-in-out
 
         svg
-            width: rem(16px)
+            width: rem(12px)
             +var(fill, color-text-secondary)
-            transition: fill 0.3s
+            transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out
 
         &:hover
+            background-color: darken(#fff, 2%)
+
             span
                 +var(color, color-brand)
 
             svg
                 +var(fill, color-brand)
 
+    &.details--shown
+        +var(border-color, color-brand)
+
+        .show-more--btn
+            +var(border-color, color-brand)
+
+            svg
+                transform: rotate(180deg)
+
 .contact
-    padding: rem(80px) 0
+    padding: rem(100px) 0
 
     .contact-artwork
         position: relative
@@ -862,8 +1075,8 @@ section
         &::before
             content: ""
             position: absolute
-            top: 0
-            inset-inline-end: 0
+            top: rem(-120px)
+            inset-inline-end: rem(-240px)
             width: rem(600px)
             height: rem(600px)
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 995 995'%3E%3CradialGradient id='SVGID_1_' cx='-461.2668' cy='1037.6787' r='0.5' gradientTransform='matrix(1137 0 0 -1137 524957.8125 1180338.25)' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.432' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.833' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3Cstop offset='1' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3C/radialGradient%3E%3Cpath opacity='0.84' fill='url(%23SVGID_1_)' enable-background='new ' d='M497.5-71L497.5-71c314,0,568.5,254.5,568.5,568.5l0,0 c0,314-254.5,568.5-568.5,568.5l0,0C183.5,1066-71,811.5-71,497.5l0,0C-71,183.5,183.5-71,497.5-71z'/%3E%3C/svg%3E")
@@ -969,6 +1182,7 @@ footer
             width: rem(50px)
             height: auto
             fill: #DEEBF5
+            transition: fill 0.3s ease-in-out
 
         &:hover
             svg
@@ -1034,3 +1248,7 @@ footer
                     width: rem(1.5px)
                     height: rem(12px)
                     background-color: #C3F0F7
+
+@media (prefers-reduced-data: reduce)
+    :root :is(img, video)
+        display: none
