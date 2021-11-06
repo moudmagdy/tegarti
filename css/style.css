@@ -1086,6 +1086,36 @@ section p:last-of-type {
   height: 100%;
 }
 
+.integration-artwork {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  aspect-ratio: 1/1;
+  background-image: -o-radial-gradient(#C3F0F7 0%, #fff 60%, transparent 100%);
+  background-image: radial-gradient(#C3F0F7 0%, #fff 60%, transparent 100%);
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+}
+@media (max-width: 992px) {
+  .integration-artwork {
+    margin: 0;
+  }
+}
+.integration-artwork svg {
+  width: 100%;
+  max-width: 37.5rem;
+  min-width: 31.25rem;
+}
+
 .reports-count {
   font-family: "GraphikArabic_SemiBold", sans-serif;
   font-size: 5rem;

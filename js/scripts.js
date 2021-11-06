@@ -81,3 +81,15 @@ mobileMenuToggle.forEach(toggle => {
         document.querySelector('body').classList.toggle('mobile-menu--shown');
     });
 });
+
+const featuresTabs = document.querySelectorAll('.features__tabs a');
+
+featuresTabs.forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let tabContent = tab.getAttribute('data-tab');
+        tab.closest('.features__tabs').querySelector('.active').classList.remove('active');
+        tab.classList.add('active');
+    });
+});
