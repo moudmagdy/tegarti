@@ -1,4 +1,18 @@
 @font-face {
+    font-family: 'GraphikArabic_Light';
+    src: url('../fonts/GraphikArabic-Light.eot');
+    src: local('Graphik Arabic Light'), local('GraphikArabic-Light'),
+        url('../fonts/GraphikArabic-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GraphikArabic-Light.woff2') format('woff2'),
+        url('../fonts/GraphikArabic-Light.woff') format('woff'),
+        url('../fonts/GraphikArabic-Light.ttf') format('truetype'),
+        url('../fonts/GraphikArabic-Light.svg#GraphikArabic-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'GraphikArabic_Regular';
     src: url('../fonts/GraphikArabic-Regular.eot');
     src: local('Graphik Arabic Regular'), local('GraphikArabic-Regular'),

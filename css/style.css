@@ -8,6 +8,14 @@
 }
 
 @font-face {
+  font-family: "GraphikArabic_Light";
+  src: url("../fonts/GraphikArabic-Light.eot");
+  src: local("Graphik Arabic Light"), local("GraphikArabic-Light"), url("../fonts/GraphikArabic-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/GraphikArabic-Light.woff2") format("woff2"), url("../fonts/GraphikArabic-Light.woff") format("woff"), url("../fonts/GraphikArabic-Light.ttf") format("truetype"), url("../fonts/GraphikArabic-Light.svg#GraphikArabic-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "GraphikArabic_Regular";
   src: url("../fonts/GraphikArabic-Regular.eot");
   src: local("Graphik Arabic Regular"), local("GraphikArabic-Regular"), url("../fonts/GraphikArabic-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/GraphikArabic-Regular.woff2") format("woff2"), url("../fonts/GraphikArabic-Regular.woff") format("woff"), url("../fonts/GraphikArabic-Regular.ttf") format("truetype"), url("../fonts/GraphikArabic-Regular.svg#GraphikArabic-Regular") format("svg");
@@ -734,7 +742,6 @@ section h4 {
   margin-bottom: 0.9375rem;
 }
 section p {
-  max-width: 27.5rem;
   font-size: 1.125rem;
   margin-bottom: 1.25rem;
 }
@@ -751,23 +758,21 @@ section p:last-of-type {
 .hero {
   position: relative;
   min-height: 100vh;
-  background-color: #DEEBF5;
-  background-color: var(--color-bg-hero);
-  z-index: 1;
   overflow: hidden;
+  z-index: 1;
   padding: 5.3125rem 0 6.25rem;
 }
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;
-  top: 5.3125rem;
-  background-image: url(../images/hero-bg.svg);
-  background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: center;
-  background-size: 55%;
-  mix-blend-mode: luminosity;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F4F7F9), color-stop(#F5F7F9), to(#FFFFFF));
+  background-image: -o-linear-gradient(#F4F7F9, #F5F7F9, #FFFFFF);
+  background-image: linear-gradient(#F4F7F9, #F5F7F9, #FFFFFF);
+  opacity: 0.6;
   z-index: -1;
 }
 .hero::after {
@@ -794,20 +799,15 @@ section p:last-of-type {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 50%;
+}
+@media (max-width: 992px) {
+  .hero-data {
+    max-width: unset;
+  }
 }
 
 .hero-title {
-  margin-top: 11.25rem;
-  margin-bottom: 6.25rem;
-}
-.hero-title h2 {
-  font-family: "GraphikArabic_Medium", sans-serif;
-  font-size: calc(1.325rem + 2.6vw);
-  color: rgba(0, 0, 0, 0.9);
-  margin-bottom: 0;
-}
-
-.hero-subtitle {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -818,34 +818,43 @@ section p:last-of-type {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  -webkit-padding-start: 2.8125rem;
-          padding-inline-start: 2.8125rem;
-  -webkit-padding-end: 2.8125rem;
-          padding-inline-end: 2.8125rem;
+  -webkit-padding-start: 1.875rem;
+          padding-inline-start: 1.875rem;
+  -webkit-padding-end: 1.25rem;
+          padding-inline-end: 1.25rem;
   padding-bottom: 0.3125rem;
+  margin-top: 11.25rem;
+  margin-bottom: 3.125rem;
+}
+@media (max-width: 992px) {
+  .hero-title {
+    margin-top: 1.875rem;
+  }
+}
+.hero-title h3 {
+  font-family: "GraphikArabic_Light", sans-serif;
+  font-size: calc(1.325rem + 1.2vw);
+  color: rgba(0, 0, 0, 0.9);
+  margin-bottom: 0;
+}
+.hero-title svg:not(.arrow) {
+  position: absolute;
+  inset-inline-start: 0;
+  width: 100%;
+  fill: #CEC4BE;
+  z-index: -1;
+}
+
+.hero-subtitle {
   margin-bottom: 2.1875rem;
 }
-.hero-subtitle h3 {
-  font-family: "GraphikArabic_Medium", sans-serif;
-  font-size: calc(1.325rem + 1.6vw);
+.hero-subtitle h2 {
+  font-family: "GraphikArabic_SemiBold", sans-serif;
+  font-size: calc(1.325rem + 2.6vw);
   color: #1877F2;
   color: var(--color-brand);
   z-index: 1;
   margin: 0;
-}
-.hero-subtitle svg:not(.arrow) {
-  position: absolute;
-  inset-inline-start: 0;
-  width: 100%;
-  fill: rgba(255, 255, 255, 0.5);
-  z-index: -1;
-}
-.hero-subtitle svg.arrow {
-  position: absolute;
-  inset-inline-end: -5.625rem;
-  top: calc(100% - 25px);
-  fill: rgba(255, 255, 255, 0.5);
-  width: 7.5rem;
 }
 
 .hero-description {
@@ -872,6 +881,34 @@ section p:last-of-type {
 }
 .cta-btns .btn.google-play--btn img {
   width: 9.375rem;
+}
+
+.artwork {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  width: 60%;
+  -webkit-transform: translateY(-40%);
+      -ms-transform: translateY(-40%);
+          transform: translateY(-40%);
+}
+@media (max-width: 992px) {
+  .artwork {
+    position: static;
+    width: 80%;
+    -webkit-margin-start: auto;
+            margin-inline-start: auto;
+    margin-top: 3.125rem;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+.artwork img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .features {
