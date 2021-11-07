@@ -1752,10 +1752,12 @@ section p:last-of-type {
 }
 .plan .plan__details li::before {
   content: "";
-  width: 0.875rem;
-  height: 0.75rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgba(0, 0, 0, 0.95)' viewBox='0 0 17 11.6'%3E%3Cpath d='M6.1,11.6L0,5.4l0.7-0.7l5.4,5.4L16.3,0L17,0.7L6.1,11.6z'%3E%3C/path%3E%3C/svg%3E");
+  width: 0.9375rem;
+  height: 0.8125rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='rgb(24, 119, 242)' viewBox='0 0 17 11.6'%3E%3Cpath d='M6.1,11.6L0,5.4l0.7-0.7l5.4,5.4L16.3,0L17,0.7L6.1,11.6z'%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
+  -webkit-filter: drop-shadow(0 0 1px #1877f2);
+          filter: drop-shadow(0 0 1px #1877f2);
 }
 .plan .show-more--btn {
   display: -webkit-box;
