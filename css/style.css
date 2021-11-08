@@ -470,7 +470,7 @@ nav a::before {
   content: "";
   position: absolute;
   inset: -0.1875rem -0.625rem;
-  border: 0.0625rem solid #fff;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.9);
   border-radius: 0.9375rem;
   z-index: -1;
   pointer-events: none;
@@ -521,7 +521,7 @@ nav a::before {
   content: "";
   position: absolute;
   inset: -0.1875rem -0.625rem;
-  border: 0.0625rem solid #fff;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.9);
   border-radius: 0.9375rem;
   z-index: -1;
   pointer-events: none;
@@ -558,53 +558,31 @@ nav a::before {
   color: #1877F2;
   color: var(--color-brand);
   text-decoration: none;
+  border-radius: 0.625rem;
+  padding: 0.5rem 1.25rem;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  -o-transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 @media (hover: hover) {
   .account-area .login--btn:hover,
 .account-area .register--btn:hover {
     color: #1877F2;
     color: var(--color-brand);
-  }
-}
-.account-area .login--btn {
-  position: relative;
-  line-height: 1.5;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.account-area .login--btn::before {
-  content: "";
-  position: absolute;
-  inset: -0.1875rem -0.625rem;
-  border-radius: 0.9375rem;
-  border: 0.0625rem solid #fff;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-@media (hover: hover) {
-  .account-area .login--btn:hover::before {
-    opacity: 1;
-  }
-}
-.account-area .register--btn {
-  border-radius: 0.625rem;
-  -webkit-box-shadow: inset 0 0 0 0.0625rem #1877F2;
-          box-shadow: inset 0 0 0 0.0625rem #1877F2;
-  padding: 0.5rem 1.25rem;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-@media (hover: hover) {
-  .account-area .register--btn:hover {
     -webkit-box-shadow: inset 0 0 0 0.125rem #1877F2;
             box-shadow: inset 0 0 0 0.125rem #1877F2;
   }
+}
+.account-area .login--btn {
+  -webkit-box-shadow: inset 0 0 0 0rem transparent;
+          box-shadow: inset 0 0 0 0rem transparent;
+  padding-inline: 0.9375rem;
+}
+.account-area .register--btn {
+  -webkit-box-shadow: inset 0 0 0 0.0625rem #1877F2;
+          box-shadow: inset 0 0 0 0.0625rem #1877F2;
 }
 
 .mobile-menu__toggle {
@@ -973,6 +951,20 @@ section p:last-of-type {
 .features__tabs a.active svg {
   fill: #1877F2;
   fill: var(--color-brand);
+}
+
+.tabs-content .tab-content {
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.tabs-content .tab-content.tab-content--shown {
+  height: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .features__preview {
