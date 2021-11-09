@@ -461,11 +461,18 @@ section
                 +var(fill, color-brand)
 
 .tabs-content
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+
     .tab-content
+        grid-column-start: 1
+        grid-column-end: 2
+        grid-row-start: 1
+        grid-row-end: 2
         height: 0
         opacity: 0
         pointer-events: none
-        transition: opacity 0.3s ease-in-out
 
         &.tab-content--shown
             height: auto
@@ -480,7 +487,7 @@ section
         z-index: 998
         // filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08))
         padding-inline-start: rem(25px)
-        padding-bottom: rem(20px)
+        padding-bottom: rem(30px)
         margin-inline-start: auto
         transform: translateY(-240px)
         transition: transform 0.5s
@@ -494,15 +501,13 @@ section
             inset-block-start: rem(50px)
 
 .tablet
-    width: rem(520px)
-    height: rem(390px)
     background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px)
     padding: rem(16px)
 
 .tablet__screen
-    width: 100%
-    height: 100%
+    width: rem(550px)
+    aspect-ratio: 4 / 3
     background-color: #fff
     border-radius: rem(6px)
     overflow: hidden
@@ -519,26 +524,13 @@ section
 
 .mobile
     position: relative
-    width: rem(180px)
-    height: rem(360px)
     background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px)
     padding: rem(11px)
 
-    // &::after
-    //     content: ""
-    //     position: absolute
-    //     top: rem(11px)
-    //     left: 50%
-    //     width: rem(88px)
-    //     height: rem(12px)
-    //     background-color: rgba(0, 0, 0, 0.9)
-    //     border-radius: 0 0 rem(12px) rem(12px)
-    //     transform: translateX(-50%)
-
 .mobile__screen
-    width: 100%
-    height: 100%
+    width: rem(185px)
+    aspect-ratio: 0.46 / 1
     background-color: #fff
     border-radius: rem(14px)
     overflow: hidden
@@ -555,41 +547,47 @@ section
 
 .laptop
     position: relative
-    width: rem(550px)
-    max-width: rem(550px)
-    height: rem(350px)
+    display: inline-flex
+    width: calc(100% - 36px)
+    background-color: rgba(0, 0, 0, 0.9)
+    border-radius: rem(24px) rem(24px) 0 0
     padding: 0 rem(20px) rem(15px)
+    padding: rem(22px) rem(15px)
     margin-top: rem(85px)
-    margin-inline-end: auto
+    margin-inline: rem(18px)
+    margin-bottom: rem(18px)
 
-    @media (max-width: 1280px)
-        width: 100%
-        height: 280px
+    // @media (max-width: 1280px)
+    //     width: 100%
+    //     height: 280px
 
-    @media (max-width: 992px)
-        height: rem(340px)
-        margin-bottom: rem(40px)
+    // @media (max-width: 992px)
+    //     height: rem(340px)
+    //     margin-bottom: rem(40px)
 
-    &::before
-        content: ""
-        position: absolute
-        inset: 0 rem(20px) rem(15px)
-        background-color: rgba(0, 0, 0, 0.9)
-        border-radius: rem(24px) rem(24px) 0 0
+    // &::before
+    //     content: ""
+    //     position: absolute
+    //     inset: 0 rem(20px) rem(15px)
+    //     background-color: rgba(0, 0, 0, 0.9)
+    //     border-radius: rem(24px) rem(24px) 0 0
 
     &::after
         content: ""
         position: absolute
-        left: 0
-        right: 0
-        bottom: 0
-        height: rem(15px)
+        left: rem(-18px)
+        right: rem(-18px)
+        bottom: rem(-18px)
+        height: rem(18px)
         background-image: url(../images/laptop-footer.svg)
         background-repeat: no-repeat
 
 .laptop__screen
-    position: absolute
-    inset: rem(22px) rem(35px) rem(37px)
+    // position: absolute
+    // inset: rem(22px) rem(35px) rem(37px)
+    // width: rem(550px)
+    width: 100%
+    aspect-ratio: 1.73 / 1
     background-color: #fff
     overflow: hidden
 

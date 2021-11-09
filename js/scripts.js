@@ -91,7 +91,7 @@ featuresTabs.forEach(tab => {
         let tabContent = tab.getAttribute('data-tab');
         tab.closest('.features__tabs').querySelector('.active').classList.remove('active');
         tab.classList.add('active');
-        document.querySelectorAll('.tab-content').forEach(tabContent => {
+        tab.closest('.features__tabs').nextElementSibling.querySelectorAll('.tab-content.tab-content--shown').forEach(tabContent => {
             tabContent.classList.remove('tab-content--shown');
         });
         tab.closest('.features__tabs').nextElementSibling.querySelector('[data-content="' + tabContent + '"]').classList.add('tab-content--shown');
