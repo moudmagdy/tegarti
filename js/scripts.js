@@ -12,22 +12,34 @@ window.addEventListener('scroll', function () {
     }
 });
 
+
+// window.addEventListener('resize', function () {
+//     if (window.innerWidth <= '992') {
+//         document.querySelector('.has-two-devices').style.display = 'none';
+//     }
+// });
+
 window.addEventListener('scroll', function () {
-    var element = document.querySelector('.features');
-    var position = element.getBoundingClientRect();
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (window.innerWidth > '992') {
+            var element = document.querySelector('.features');
+            var position = element.getBoundingClientRect();
 
-    // checking whether fully visible
-    // if (position.top >= 0 && position.bottom <= window.innerHeight) {
-    //     console.log('Element is fully visible in screen');
-    // }
+            // checking whether fully visible
+            // if (position.top >= 0 && position.bottom <= window.innerHeight) {
+            //     console.log('Element is fully visible in screen');
+            // }
 
-    // checking for partial visibility
-    if (position.top < window.innerHeight - 200 && position.bottom >= 0) {
-        // console.log('Element is partially visible in screen');
-        document.querySelector('.has-two-devices').style.transform = 'translateY(0)';
-    } else {
-        // console.log('Element is not visible in screen');
-        document.querySelector('.has-two-devices').style.transform = 'translateY(-240px)';
+            // checking for partial visibility
+            if (position.top < window.innerHeight - 200 && position.bottom >= 0) {
+                // console.log('Element is partially visible in screen');
+                document.querySelector('.has-two-devices').style.transform = 'translateY(0)';
+            } else {
+                // console.log('Element is not visible in screen');
+                document.querySelector('.has-two-devices').style.transform = 'translateY(-240px)';
+            }
+            console.log(window.innerWidth)
+        }
     }
 });
 

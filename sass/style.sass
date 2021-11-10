@@ -258,6 +258,8 @@ nav
             color: #fff
 
         .login--btn
+            padding: 0
+
             &::before
                 display: none
 
@@ -318,22 +320,20 @@ section
         height: 80vh
         background-image: linear-gradient(#F4F7F9, #F5F7F9, #FFFFFF)
         opacity: 0.6
-        z-index: -1
+        z-index: -2
 
     &::after
-        background-image: #66A9FF
-
-    .orb-yellow
+        content: ""
         position: absolute
-        left: -200px
-        bottom: -200px
-        width: 1000px
-        height: 1000px
+        left: -60%
+        bottom: -100%
+        width: rem(1800px)
+        aspect-ratio: 1 / 1
         background-image: url(../images/orb-purple.svg)
         background-repeat: no-repeat
-        background-size: 110%
+        background-size: cover
         background-position: center center
-        z-index: -2
+        z-index: -1
 
 .hero-data
     display: flex
@@ -348,6 +348,7 @@ section
     display: flex
     align-items: center
     max-width: max-content
+    z-index: 1
     padding-inline-start: rem(30px)
     padding-inline-end: rem(20px)
     padding-bottom: rem(5px)
@@ -391,6 +392,11 @@ section
     align-items: center
     gap: rem(30px)
 
+    .hero &
+        @media (max-width: 576px)
+            flex-direction: column
+            align-items: flex-start
+
     .btn
         padding-inline: 3rem
 
@@ -425,6 +431,9 @@ section
 
     .row:last-of-type:not(:only-child)
         margin-top: rem(150px)
+
+        @media (max-width: 992px)
+            margin-top: rem(50px)
 
 .features__tabs
     display: flex
@@ -479,66 +488,13 @@ section
             opacity: 1
             pointer-events: auto
 
-.features__preview
-    position: relative
-
-    &.has-two-devices
-        max-width: max-content
-        z-index: 998
-        // filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.08))
-        padding-inline-start: rem(25px)
-        padding-bottom: rem(30px)
-        margin-inline-start: auto
-        transform: translateY(-240px)
-        transition: transform 0.5s
-
-        @media (max-width: 992px)
-            margin-bottom: rem(40px)
-
-        .mobile
-            position: absolute
-            inset-inline-start: 0
-            inset-block-start: rem(50px)
-
-    &.reports
-        .reports-details
-            position: relative
-            display: inline-flex
-            padding-inline-start: rem(100px)
-
-            .report-chart,
-            .report-shift-opened,
-            .report-shift-closed
-                position: absolute
-                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05))
-
-            .report-chart
-                max-width: rem(240px)
-                inset-inline-start: calc(100% - 100px)
-                bottom: rem(60px)
-
-            .report-shift-opened,
-            .report-shift-closed
-                max-width: rem(200px)
-
-            .report-shift-opened
-                inset-inline-start: calc(100% - 70px)
-                top: rem(55px)
-
-            .report-shift-closed
-                inset-inline-start: calc(100% - 45px)
-                top: rem(85px)
-
-        .mobile
-            width: max-content
-
 .tablet
     background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px)
     padding: rem(16px)
 
 .tablet__screen
-    width: rem(550px)
+    max-width: rem(550px)
     aspect-ratio: 4 / 3
     background-color: #fff
     border-radius: rem(6px)
@@ -561,7 +517,7 @@ section
     padding: rem(11px)
 
 .mobile__screen
-    width: rem(185px)
+    max-width: rem(185px)
     aspect-ratio: 0.46 / 1
     background-color: #fff
     border-radius: rem(14px)
@@ -589,13 +545,8 @@ section
     margin-inline: rem(18px)
     margin-bottom: rem(18px)
 
-    // @media (max-width: 1280px)
-    //     width: 100%
-    //     height: 280px
-
-    // @media (max-width: 992px)
-    //     height: rem(340px)
-    //     margin-bottom: rem(40px)
+    @media (max-width: 992px)
+        margin-top: 0
 
     &::after
         content: ""
@@ -626,6 +577,67 @@ section
         width: 100%
         height: 100%
 
+.features__preview
+    position: relative
+
+    &.has-two-devices
+        max-width: max-content
+        z-index: 998
+        padding-inline-start: rem(25px)
+        padding-bottom: rem(40px)
+        margin-inline-start: auto
+        transition: transform 0.5s
+
+        @media (min-width: 992px)
+            transform: translateY(-240px)
+
+        @media (max-width: 992px)
+            margin-bottom: rem(40px)
+
+        .mobile
+            position: absolute
+            inset-inline-start: 0
+            inset-block-start: rem(50px)
+            max-width: 35%
+
+            .mobile__screen
+                max-width: 100%
+
+    &.reports
+        .reports-details
+            position: relative
+            display: inline-flex
+            padding-inline-start: rem(60px)
+
+            @media (max-width: 992px)
+                padding-inline-start: 0
+
+            .report-chart,
+            .report-shift-opened,
+            .report-shift-closed
+                position: absolute
+                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05))
+
+            .report-chart
+                max-width: rem(240px)
+                inset-inline-start: calc(100% - 100px)
+                bottom: rem(60px)
+
+            .report-shift-opened,
+            .report-shift-closed
+                max-width: rem(200px)
+
+            .report-shift-opened
+                inset-inline-start: calc(100% - 70px)
+                top: rem(55px)
+
+            .report-shift-closed
+                inset-inline-start: calc(100% - 45px)
+                top: rem(85px)
+
+        .mobile
+            width: max-content
+
 .integration-artwork
     position: relative
     +flex-center
@@ -642,8 +654,6 @@ section
 
     svg
         width: 100%
-        max-width: rem(600px)
-        min-width: rem(500px)
 
 .reports-count
     font-family: 'GraphikArabic_SemiBold', sans-serif
@@ -810,6 +820,7 @@ section
 
         ul
             +flex-center
+            flex-wrap: wrap
             gap: rem(40px)
             flex: 1 0 100%
             list-style: none
@@ -850,7 +861,7 @@ section
             fill: #fff
 
 .business-size
-    background-color: rgba(255, 224, 94, 0.2)
+    background-color: rgba(244, 239, 217, 0.5)
 
     .marquee
         // animation: marquee-right 8s linear infinite
@@ -1126,9 +1137,7 @@ section
             inset-inline-end: rem(-240px)
             width: rem(600px)
             height: rem(600px)
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 995 995'%3E%3CradialGradient id='SVGID_1_' cx='-461.2668' cy='1037.6787' r='0.5' gradientTransform='matrix(1137 0 0 -1137 524957.8125 1180338.25)' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.432' style='stop-color:%23C3F0F7'/%3E%3Cstop offset='0.833' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3Cstop offset='1' style='stop-color:%23C3F0F7;stop-opacity:0'/%3E%3C/radialGradient%3E%3Cpath opacity='0.84' fill='url(%23SVGID_1_)' enable-background='new ' d='M497.5-71L497.5-71c314,0,568.5,254.5,568.5,568.5l0,0 c0,314-254.5,568.5-568.5,568.5l0,0C183.5,1066-71,811.5-71,497.5l0,0C-71,183.5,183.5-71,497.5-71z'/%3E%3C/svg%3E")
-            background-repeat: no-repeat
-            background-position: center center
+            background-image: radial-gradient(#DBEBF7 0%, #fff 60%, transparent 100%)
             z-index: -1
 
     h3
