@@ -1005,6 +1005,43 @@ section p:last-of-type {
   inset-inline-start: 0;
   inset-block-start: 3.125rem;
 }
+.features__preview.reports .reports-details {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-padding-start: 6.25rem;
+          padding-inline-start: 6.25rem;
+}
+.features__preview.reports .reports-details .report-chart,
+.features__preview.reports .reports-details .report-shift-opened,
+.features__preview.reports .reports-details .report-shift-closed {
+  position: absolute;
+  -webkit-filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05));
+          filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05));
+}
+.features__preview.reports .reports-details .report-chart {
+  max-width: 15rem;
+  inset-inline-start: calc(100% - 100px);
+  bottom: 3.75rem;
+}
+.features__preview.reports .reports-details .report-shift-opened,
+.features__preview.reports .reports-details .report-shift-closed {
+  max-width: 12.5rem;
+}
+.features__preview.reports .reports-details .report-shift-opened {
+  inset-inline-start: calc(100% - 70px);
+  top: 3.4375rem;
+}
+.features__preview.reports .reports-details .report-shift-closed {
+  inset-inline-start: calc(100% - 45px);
+  top: 5.3125rem;
+}
+.features__preview.reports .mobile {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
 
 .tablet {
   background-color: rgba(0, 0, 0, 0.9);
@@ -1103,6 +1140,7 @@ section p:last-of-type {
 }
 
 .integration-artwork {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1112,19 +1150,17 @@ section p:last-of-type {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  aspect-ratio: 1/1;
-  background-image: -o-radial-gradient(#C3F0F7 0%, #fff 60%, transparent 100%);
-  background-image: radial-gradient(#C3F0F7 0%, #fff 60%, transparent 100%);
-  -webkit-margin-start: auto;
-          margin-inline-start: auto;
+  width: 100%;
+  z-index: 1;
 }
-@media (max-width: 992px) {
-  .integration-artwork {
-    margin: 0;
-  }
+.integration-artwork::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-image: -o-radial-gradient(#DEEBF5 0%, #fff 60%, transparent 100%);
+  background-image: radial-gradient(#DEEBF5 0%, #fff 60%, transparent 100%);
+  z-index: -1;
 }
 .integration-artwork svg {
   width: 100%;

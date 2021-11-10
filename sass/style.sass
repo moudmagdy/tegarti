@@ -500,6 +500,38 @@ section
             inset-inline-start: 0
             inset-block-start: rem(50px)
 
+    &.reports
+        .reports-details
+            position: relative
+            display: inline-flex
+            padding-inline-start: rem(100px)
+
+            .report-chart,
+            .report-shift-opened,
+            .report-shift-closed
+                position: absolute
+                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05))
+
+            .report-chart
+                max-width: rem(240px)
+                inset-inline-start: calc(100% - 100px)
+                bottom: rem(60px)
+
+            .report-shift-opened,
+            .report-shift-closed
+                max-width: rem(200px)
+
+            .report-shift-opened
+                inset-inline-start: calc(100% - 70px)
+                top: rem(55px)
+
+            .report-shift-closed
+                inset-inline-start: calc(100% - 45px)
+                top: rem(85px)
+
+        .mobile
+            width: max-content
+
 .tablet
     background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px)
@@ -565,13 +597,6 @@ section
     //     height: rem(340px)
     //     margin-bottom: rem(40px)
 
-    // &::before
-    //     content: ""
-    //     position: absolute
-    //     inset: 0 rem(20px) rem(15px)
-    //     background-color: rgba(0, 0, 0, 0.9)
-    //     border-radius: rem(24px) rem(24px) 0 0
-
     &::after
         content: ""
         position: absolute
@@ -583,9 +608,6 @@ section
         background-repeat: no-repeat
 
 .laptop__screen
-    // position: absolute
-    // inset: rem(22px) rem(35px) rem(37px)
-    // width: rem(550px)
     width: 100%
     aspect-ratio: 1.73 / 1
     background-color: #fff
@@ -605,14 +627,18 @@ section
         height: 100%
 
 .integration-artwork
+    position: relative
     +flex-center
-    max-width: max-content
-    aspect-ratio: 1 / 1
-    background-image: radial-gradient(#C3F0F7 0%, #fff 60%, transparent 100%)
-    margin-inline-start: auto
+    width: 100%
+    z-index: 1
 
-    @media (max-width: 992px)
-        margin: 0
+    &::before
+        content: ""
+        position: absolute
+        width: 100%
+        aspect-ratio: 1 / 1
+        background-image: radial-gradient(#DEEBF5 0%, #fff 60%, transparent 100%)
+        z-index: -1
 
     svg
         width: 100%
