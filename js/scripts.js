@@ -3,22 +3,19 @@ let year = date.getFullYear();
 document.querySelector('.copyrights__year').innerHTML = year;
 
 const navItems = document.querySelectorAll('nav a');
+for (const item of navItems) {
+    item.addEventListener("click", clickHandler);
+}
+function clickHandler(e) {
+    e.preventDefault();
+    const href = this.getAttribute("href");
+    const offsetTop = document.querySelector(href).offsetTop;
 
-navItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let targetElem = item.getAttribute('href');
-
-        var bodyRect = document.body.getBoundingClientRect(),
-            elemRect = targetElem.getBoundingClientRect(),
-            offset = elemRect.top - bodyRect.top;
-
-        console.log(offset)
-
-
+    scroll({
+        top: offsetTop,
+        behavior: "smooth"
     });
-});
+}
 
 function toggleShrink() {
     let scrollpos = window.scrollY;
@@ -93,21 +90,21 @@ if (document.querySelector('.swiper')) {
 // }
 
 const planMoreBtns = document.querySelectorAll('.show-more--btn');
-
 planMoreBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         btn.closest('.plan').classList.toggle('details--shown');
         if (btn.closest('.plan').classList.contains('details--shown')) {
             btn.previousElementSibling.style.maxHeight = btn.previousElementSibling.scrollHeight + 'px';
+            btn.querySelector('span').textContent = "Show less";
         } else {
             btn.previousElementSibling.style.maxHeight = 0;
+            btn.querySelector('span').textContent = "Show more";
         }
     });
 });
 
 const mobileMenuToggle = document.querySelectorAll('.mobile-menu__toggle');
-
 mobileMenuToggle.forEach(toggle => {
     toggle.addEventListener('click', (e) => {
         e.preventDefault();
@@ -116,7 +113,6 @@ mobileMenuToggle.forEach(toggle => {
 });
 
 const featuresTabs = document.querySelectorAll('.features__tabs a');
-
 featuresTabs.forEach(tab => {
     tab.addEventListener('click', (e) => {
         e.preventDefault();
