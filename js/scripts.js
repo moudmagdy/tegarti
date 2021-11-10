@@ -2,6 +2,24 @@ const date = new Date();
 let year = date.getFullYear();
 document.querySelector('.copyrights__year').innerHTML = year;
 
+const navItems = document.querySelectorAll('nav a');
+
+navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        let targetElem = item.getAttribute('href');
+
+        var bodyRect = document.body.getBoundingClientRect(),
+            elemRect = targetElem.getBoundingClientRect(),
+            offset = elemRect.top - bodyRect.top;
+
+        console.log(offset)
+
+
+    });
+});
+
 function toggleShrink() {
     let scrollpos = window.scrollY;
 
@@ -11,7 +29,6 @@ function toggleShrink() {
         document.querySelector('header').classList.remove('header--shrinked');
     }
 }
-
 window.addEventListener('scroll', toggleShrink);
 window.addEventListener('load', toggleShrink);
 
@@ -41,11 +58,9 @@ function slidePreview() {
                 // console.log('Element is not visible in screen');
                 document.querySelector('.has-two-devices').style.transform = 'translateY(-240px)';
             }
-            console.log(window.innerWidth)
         }
     }
 }
-
 window.addEventListener('scroll', slidePreview);
 window.addEventListener('resize', slidePreview);
 
