@@ -58,14 +58,14 @@ header
     display: flex
     align-items: center
     width: 100%
-    height: rem(85px)
+    height: rem(64px)
     color: #fff
     border-bottom: rem(2px) solid rgba(155, 195, 247, 0.35)
     z-index: 999
     transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out
 
     &.header--shrinked
-        height: rem(70px)
+        height: rem(60px)
         background-color: rgba(155, 195, 247, 0.35)
         border-color: transparent
 
@@ -77,16 +77,16 @@ header
 
 .header-logo
     display: flex
-    max-width: rem(155px)
+    max-width: rem(125px)
     overflow: hidden
     transition: max-width 0.3s cubic-bezier(0.92, 0.06, 0.18, 1.11)
 
     .header--shrinked &
-        max-width: rem(45px)
+        max-width: rem(38px)
 
     svg
-        width: rem(155px)
-        min-width: rem(155px)
+        width: rem(125px)
+        min-width: rem(125px)
         +var(fill, color-brand)
 
 nav
@@ -207,18 +207,26 @@ nav
     display: none
     width: 100%
     height: 100%
-    +var(background-color, color-brand)
     z-index: 999
     pointer-events: none
     opacity: 0
     padding: rem(30px) rem(40px)
     transition: all 0.3s cubic-bezier(1, -0.29, 0.05, 1.58)
 
+    @supports (backdrop-filter: blur(15px))
+        backdrop-filter: blur(15px)
+        background-color: rgba(24, 119, 242, 0.8)
+
+    @supports not (backdrop-filter: blur(15px))
+        +var(background-color, color-brand)
+
     @media (max-width: 992px)
         display: block
 
-    .header-logo
+    .menu-logo
         svg
+            width: rem(50px)
+            height: auto
             fill: #fff
 
     .mobile-menu__toggle
@@ -227,8 +235,9 @@ nav
 
     nav
         flex-direction: column
-        gap: rem(20px)
-        margin-bottom: 50px
+        gap: rem(30px)
+        margin-top: rem(50px)
+        margin-bottom: rem(30px)
 
         a
             justify-content: flex-start
@@ -247,25 +256,23 @@ nav
             fill: #fff
 
     .account-area
+        margin-top: rem(80px)
+
         .login--btn,
         .register--btn
             color: #fff
 
         .login--btn
-            padding: 0
+            background-color: lighten(#1877F2, 10%)
 
             &::before
                 display: none
 
             &:hover
-                color: rgba(255, 255, 255, 0.8)
+                box-shadow: none
 
         .register--btn
             box-shadow: inset 0 0 0 rem(2px) #fff
-
-            &:hover
-                color: rgba(255, 255, 255, 0.8)
-                box-shadow: inset 0 0 0 rem(2px) rgba(255, 255, 255, 0.8)
 
     .mobile-menu--shown &
         pointer-events: auto

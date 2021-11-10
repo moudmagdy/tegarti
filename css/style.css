@@ -390,7 +390,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  height: 5.3125rem;
+  height: 4rem;
   color: #fff;
   border-bottom: 0.125rem solid rgba(155, 195, 247, 0.35);
   z-index: 999;
@@ -399,7 +399,7 @@ header {
   transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 header.header--shrinked {
-  height: 4.375rem;
+  height: 3.75rem;
   background-color: rgba(155, 195, 247, 0.35);
   border-color: transparent;
 }
@@ -419,18 +419,18 @@ header.header--shrinked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 9.6875rem;
+  max-width: 7.8125rem;
   overflow: hidden;
   -webkit-transition: max-width 0.3s cubic-bezier(0.92, 0.06, 0.18, 1.11);
   -o-transition: max-width 0.3s cubic-bezier(0.92, 0.06, 0.18, 1.11);
   transition: max-width 0.3s cubic-bezier(0.92, 0.06, 0.18, 1.11);
 }
 .header--shrinked .header-logo {
-  max-width: 2.8125rem;
+  max-width: 2.375rem;
 }
 .header-logo svg {
-  width: 9.6875rem;
-  min-width: 9.6875rem;
+  width: 7.8125rem;
+  min-width: 7.8125rem;
   fill: #1877F2;
   fill: var(--color-brand);
 }
@@ -612,8 +612,6 @@ nav a::before {
   display: none;
   width: 100%;
   height: 100%;
-  background-color: #1877F2;
-  background-color: var(--color-brand);
   z-index: 999;
   pointer-events: none;
   opacity: 0;
@@ -622,12 +620,27 @@ nav a::before {
   -o-transition: all 0.3s cubic-bezier(1, -0.29, 0.05, 1.58);
   transition: all 0.3s cubic-bezier(1, -0.29, 0.05, 1.58);
 }
+@supports ((-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))) {
+  .mobile-menu {
+    -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+    background-color: rgba(24, 119, 242, 0.8);
+  }
+}
+@supports not ((-webkit-backdrop-filter: blur(15px)) or (backdrop-filter: blur(15px))) {
+  .mobile-menu {
+    background-color: #1877F2;
+    background-color: var(--color-brand);
+  }
+}
 @media (max-width: 992px) {
   .mobile-menu {
     display: block;
   }
 }
-.mobile-menu .header-logo svg {
+.mobile-menu .menu-logo svg {
+  width: 3.125rem;
+  height: auto;
   fill: #fff;
 }
 .mobile-menu .mobile-menu__toggle svg {
@@ -638,8 +651,9 @@ nav a::before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 50px;
+  gap: 1.875rem;
+  margin-top: 3.125rem;
+  margin-bottom: 1.875rem;
 }
 .mobile-menu nav a {
   -webkit-box-pack: start;
@@ -659,27 +673,26 @@ nav a::before {
 .mobile-menu .language-switcher svg {
   fill: #fff;
 }
+.mobile-menu .account-area {
+  margin-top: 5rem;
+}
 .mobile-menu .account-area .login--btn,
 .mobile-menu .account-area .register--btn {
   color: #fff;
 }
 .mobile-menu .account-area .login--btn {
-  padding: 0;
+  background-color: #4893f5;
 }
 .mobile-menu .account-area .login--btn::before {
   display: none;
 }
 .mobile-menu .account-area .login--btn:hover {
-  color: rgba(255, 255, 255, 0.8);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .mobile-menu .account-area .register--btn {
   -webkit-box-shadow: inset 0 0 0 0.125rem #fff;
           box-shadow: inset 0 0 0 0.125rem #fff;
-}
-.mobile-menu .account-area .register--btn:hover {
-  color: rgba(255, 255, 255, 0.8);
-  -webkit-box-shadow: inset 0 0 0 0.125rem rgba(255, 255, 255, 0.8);
-          box-shadow: inset 0 0 0 0.125rem rgba(255, 255, 255, 0.8);
 }
 .mobile-menu--shown .mobile-menu {
   pointer-events: auto;

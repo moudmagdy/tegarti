@@ -2,7 +2,7 @@ const date = new Date();
 let year = date.getFullYear();
 document.querySelector('.copyrights__year').innerHTML = year;
 
-window.addEventListener('scroll', function () {
+function toggleShrink() {
     let scrollpos = window.scrollY;
 
     if (scrollpos > 10) {
@@ -10,7 +10,10 @@ window.addEventListener('scroll', function () {
     } else {
         document.querySelector('header').classList.remove('header--shrinked');
     }
-});
+}
+
+window.addEventListener('scroll', toggleShrink);
+window.addEventListener('load', toggleShrink);
 
 
 // window.addEventListener('resize', function () {
@@ -19,7 +22,7 @@ window.addEventListener('scroll', function () {
 //     }
 // });
 
-window.addEventListener('scroll', function () {
+function slidePreview() {
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         if (window.innerWidth > '992') {
             var element = document.querySelector('.features');
@@ -41,7 +44,10 @@ window.addEventListener('scroll', function () {
             console.log(window.innerWidth)
         }
     }
-});
+}
+
+window.addEventListener('scroll', slidePreview);
+window.addEventListener('resize', slidePreview);
 
 if (document.querySelector('.swiper')) {
     var swiper = new Swiper('.swiper', {
