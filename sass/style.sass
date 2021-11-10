@@ -250,9 +250,6 @@ nav
             fill: #fff
 
     .account-area
-        flex-direction: column
-        align-items: flex-start
-
         .login--btn,
         .register--btn
             color: #fff
@@ -495,6 +492,10 @@ section
     border-radius: rem(24px)
     padding: rem(16px)
 
+    @media (max-width: 576px)
+        border-radius: rem(18px)
+        padding: rem(12px)
+
 .tablet__screen
     max-width: rem(550px)
     aspect-ratio: 4 / 3
@@ -518,6 +519,10 @@ section
     border-radius: rem(24px)
     padding: rem(11px)
 
+    @media (max-width: 576px)
+        border-radius: rem(18px)
+        padding: rem(8px)
+
 .mobile__screen
     max-width: rem(185px)
     aspect-ratio: 0.46 / 1
@@ -527,6 +532,7 @@ section
 
     @media (max-width: 576px)
         max-width: rem(140px)
+        border-radius: rem(12px)
 
     &:empty
         background-image: url(../images/logo.svg)
@@ -544,14 +550,16 @@ section
     width: calc(100% - 36px)
     background-color: rgba(0, 0, 0, 0.9)
     border-radius: rem(24px) rem(24px) 0 0
-    padding: 0 rem(20px) rem(15px)
     padding: rem(22px) rem(15px)
-    margin-top: rem(85px)
+    margin-block: rem(85px) rem(18px)
     margin-inline: rem(18px)
-    margin-bottom: rem(18px)
 
     @media (max-width: 992px)
         margin-top: 0
+
+    @media (max-width: 576px)
+        border-radius: rem(18px) rem(18px) 0 0
+        padding: rem(14px) rem(11px)
 
     &::after
         content: ""
@@ -846,32 +854,32 @@ section
         display: flex
         width: 100%
 
-        ul
+    ul
+        +flex-center
+        flex-wrap: wrap
+        gap: rem(40px)
+        flex: 1 0 100%
+        list-style: none
+        padding: 0
+        margin: 0
+
+        @media (max-width: 768px)
+            gap: rem(15px)
+
+        li
             +flex-center
-            flex-wrap: wrap
-            gap: rem(40px)
-            flex: 1 0 100%
-            list-style: none
-            padding: 0
-            margin: 0
+            gap: rem(10px)
 
             @media (max-width: 768px)
-                gap: rem(15px)
+                gap: rem(6px)
 
-            li
-                +flex-center
-                gap: rem(10px)
+            .title
+                font-family: 'GraphikArabic_Medium', sans-serif
+                font-size: rem(22px)
+                +var(color, color-text-secondary)
 
                 @media (max-width: 768px)
-                    gap: rem(6px)
-
-                .title
-                    font-family: 'GraphikArabic_Medium', sans-serif
-                    font-size: rem(22px)
-                    +var(color, color-text-secondary)
-
-                    @media (max-width: 768px)
-                        font-size: rem(18px)
+                    font-size: rem(18px)
 
 .merchant-type
     .marquee
@@ -1157,6 +1165,9 @@ section
         margin-top: rem(30px)
         margin-inline-start: auto
         margin-inline-end: rem(60px)
+
+        @media (max-width: 992px)
+            margin: 0
 
         &::before
             content: ""
