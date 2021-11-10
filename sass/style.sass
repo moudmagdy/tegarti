@@ -15,12 +15,12 @@ body
     font-style: normal
     +var(color, color-text-primary)
     +var(font-size, default-font-size)
-    min-width: rem(380px)
+    // min-width: rem(380px)
     overflow-x: hidden
     overflow-y: auto
 
-    @media (max-width: 380px)
-        overflow-x: auto
+    // @media (max-width: 380px)
+        // overflow-x: auto
 
 *
     outline: none
@@ -279,6 +279,8 @@ nav
         transform: translateX(-100%)
 
 section
+    overflow: hidden
+
     h3
         font-size: 2.25rem
         margin-bottom: rem(50px)
@@ -523,6 +525,9 @@ section
     border-radius: rem(14px)
     overflow: hidden
 
+    @media (max-width: 576px)
+        max-width: rem(140px)
+
     &:empty
         background-image: url(../images/logo.svg)
         background-repeat: no-repeat
@@ -623,9 +628,17 @@ section
                 inset-inline-start: calc(100% - 100px)
                 bottom: rem(60px)
 
+                @media (max-width: 576px)
+                    max-width: rem(160px)
+                    inset-inline-start: calc(100% - 80px)
+                    bottom: rem(30px)
+
             .report-shift-opened,
             .report-shift-closed
                 max-width: rem(200px)
+
+                @media (max-width: 576px)
+                    max-width: rem(150px)
 
             .report-shift-opened
                 inset-inline-start: calc(100% - 70px)
@@ -664,11 +677,17 @@ section
     display: flex
     gap: rem(20px)
 
+    @media (max-width: 576px)
+        flex-direction: column
+
     .download-btn
         background-color: #000
         border: rem(1px) solid #A6A6A6
         border-radius: rem(10px)
         padding: 0.5rem 1rem
+
+        @media (max-width: 576px)
+            text-align: center
 
         img
             height: rem(34px)
@@ -698,6 +717,11 @@ section
     padding: rem(15px)
     transition: all 0.3s
 
+    @media (max-width: 576px)
+        width: 80vw
+        height: auto
+        aspect-ratio: 1 / 1
+
     &::before
         content: ""
         position: absolute
@@ -710,6 +734,10 @@ section
         +flex-center
         width: rem(150px)
         height: rem(150px)
+
+        @media (max-width: 576px)
+            width: rem(120px)
+            height: rem(120px)
 
         svg
             width: 100%
@@ -812,7 +840,7 @@ section
 .merchant-type,
 .business-size
     overflow: hidden
-    padding: rem(20px) 0
+    padding: rem(20px) rem(15px)
 
     .marquee
         display: flex

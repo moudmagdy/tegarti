@@ -328,14 +328,8 @@ body {
   color: var(--color-text-primary);
   font-size: 1rem;
   font-size: var(--default-font-size);
-  min-width: 23.75rem;
   overflow-x: hidden;
   overflow-y: auto;
-}
-@media (max-width: 380px) {
-  body {
-    overflow-x: auto;
-  }
 }
 
 * {
@@ -703,6 +697,9 @@ nav a::before {
           transform: translateX(-100%);
 }
 
+section {
+  overflow: hidden;
+}
 section h3 {
   font-size: 2.25rem;
   margin-bottom: 3.125rem;
@@ -1029,6 +1026,11 @@ section p:last-of-type {
   border-radius: 0.875rem;
   overflow: hidden;
 }
+@media (max-width: 576px) {
+  .mobile__screen {
+    max-width: 8.75rem;
+  }
+}
 .mobile__screen:empty {
   background-image: url(../images/logo.svg);
   background-repeat: no-repeat;
@@ -1158,9 +1160,22 @@ section p:last-of-type {
   inset-inline-start: calc(100% - 100px);
   bottom: 3.75rem;
 }
+@media (max-width: 576px) {
+  .features__preview.reports .reports-details .report-chart {
+    max-width: 10rem;
+    inset-inline-start: calc(100% - 80px);
+    bottom: 1.875rem;
+  }
+}
 .features__preview.reports .reports-details .report-shift-opened,
 .features__preview.reports .reports-details .report-shift-closed {
   max-width: 12.5rem;
+}
+@media (max-width: 576px) {
+  .features__preview.reports .reports-details .report-shift-opened,
+.features__preview.reports .reports-details .report-shift-closed {
+    max-width: 9.375rem;
+  }
 }
 .features__preview.reports .reports-details .report-shift-opened {
   inset-inline-start: calc(100% - 70px);
@@ -1215,11 +1230,24 @@ section p:last-of-type {
   display: flex;
   gap: 1.25rem;
 }
+@media (max-width: 576px) {
+  .download-btns {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .download-btns .download-btn {
   background-color: #000;
   border: 0.0625rem solid #A6A6A6;
   border-radius: 0.625rem;
   padding: 0.5rem 1rem;
+}
+@media (max-width: 576px) {
+  .download-btns .download-btn {
+    text-align: center;
+  }
 }
 .download-btns .download-btn img {
   height: 2.125rem;
@@ -1264,6 +1292,13 @@ section p:last-of-type {
   -o-transition: all 0.3s;
   transition: all 0.3s;
 }
+@media (max-width: 576px) {
+  .business-type {
+    width: 80vw;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
 .business-type::before {
   content: "";
   position: absolute;
@@ -1284,6 +1319,12 @@ section p:last-of-type {
           align-items: center;
   width: 9.375rem;
   height: 9.375rem;
+}
+@media (max-width: 576px) {
+  .business-type .business-icon {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
 }
 .business-type .business-icon svg {
   width: 100%;
@@ -1430,7 +1471,7 @@ section p:last-of-type {
 .merchant-type,
 .business-size {
   overflow: hidden;
-  padding: 1.25rem 0;
+  padding: 1.25rem 0.9375rem;
 }
 .merchant-type .marquee,
 .business-size .marquee {
