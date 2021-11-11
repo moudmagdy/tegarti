@@ -4,16 +4,16 @@ document.querySelector('.copyrights__year').innerHTML = year;
 
 const navItems = document.querySelectorAll('nav a');
 for (const item of navItems) {
-    item.addEventListener("click", clickHandler);
+    item.addEventListener('click', clickHandler);
 }
 function clickHandler(e) {
     e.preventDefault();
-    const href = this.getAttribute("href");
+    const href = this.getAttribute('href');
     const offsetTop = document.querySelector(href).offsetTop;
 
     scroll({
         top: offsetTop,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 }
 
@@ -38,9 +38,9 @@ window.addEventListener('load', toggleShrink);
 
 function slidePreview() {
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (window.innerWidth > '992') {
-            var element = document.querySelector('.features');
-            var position = element.getBoundingClientRect();
+        if (window.innerWidth >= '992') {
+            let element = document.querySelector('.features');
+            let position = element.getBoundingClientRect();
 
             // checking whether fully visible
             // if (position.top >= 0 && position.bottom <= window.innerHeight) {
@@ -59,7 +59,13 @@ function slidePreview() {
     }
 }
 window.addEventListener('scroll', slidePreview);
-window.addEventListener('resize', slidePreview);
+
+function stopSlidePreview() {
+    if (window.innerWidth >= '992') {
+        document.querySelector('.has-two-devices').style.transform = 'translateY(0)';
+    }
+}
+window.addEventListener('resize', stopSlidePreview);
 
 if (document.querySelector('.swiper')) {
     var swiper = new Swiper('.swiper', {
@@ -96,10 +102,10 @@ planMoreBtns.forEach(btn => {
         btn.closest('.plan').classList.toggle('details--shown');
         if (btn.closest('.plan').classList.contains('details--shown')) {
             btn.previousElementSibling.style.maxHeight = btn.previousElementSibling.scrollHeight + 'px';
-            btn.querySelector('span').textContent = "Show less";
+            btn.querySelector('span').textContent = 'Show less';
         } else {
             btn.previousElementSibling.style.maxHeight = 0;
-            btn.querySelector('span').textContent = "Show more";
+            btn.querySelector('span').textContent = 'Show more';
         }
     });
 });

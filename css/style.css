@@ -813,6 +813,11 @@ section p:last-of-type {
     margin-top: 1.875rem;
   }
 }
+@media (max-width: 576px) {
+  .hero-title {
+    margin-bottom: 1.875rem;
+  }
+}
 .hero-title h3 {
   font-family: "GraphikArabic_Light", sans-serif;
   font-size: calc(1.325rem + 1.2vw);
@@ -829,6 +834,11 @@ section p:last-of-type {
 
 .hero-subtitle {
   margin-bottom: 2.1875rem;
+}
+@media (max-width: 576px) {
+  .hero-subtitle {
+    margin-bottom: 1.25rem;
+  }
 }
 .hero-subtitle h2 {
   font-family: "GraphikArabic_SemiBold", sans-serif;
@@ -854,6 +864,11 @@ section p:last-of-type {
       -ms-flex-align: center;
           align-items: center;
   gap: 1.875rem;
+}
+@media (max-width: 576px) {
+  .cta-btns {
+    gap: 1.25rem;
+  }
 }
 @media (max-width: 576px) {
   .hero .cta-btns {
@@ -889,9 +904,8 @@ section p:last-of-type {
   .artwork {
     position: static;
     width: 80%;
-    -webkit-margin-start: auto;
-            margin-inline-start: auto;
     margin-top: 3.125rem;
+    margin-inline: auto;
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
@@ -1144,6 +1158,7 @@ section p:last-of-type {
 }
 @media (max-width: 992px) {
   .features__preview.has-two-devices {
+    margin-inline: auto;
     margin-bottom: 2.5rem;
   }
 }
@@ -1155,6 +1170,18 @@ section p:last-of-type {
 }
 .features__preview.has-two-devices .mobile .mobile__screen {
   max-width: 100%;
+}
+.features__preview.reports {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-padding-end: 9.6875rem;
+          padding-inline-end: 9.6875rem;
+}
+@media (max-width: 992px) {
+  .features__preview.reports {
+    margin-inline: auto;
+  }
 }
 .features__preview.reports .reports-details {
   position: relative;
@@ -1318,7 +1345,7 @@ section p:last-of-type {
 }
 @media (max-width: 576px) {
   .business-type {
-    width: 80vw;
+    width: 60vw;
     height: auto;
     aspect-ratio: 1/1;
   }
@@ -1346,8 +1373,8 @@ section p:last-of-type {
 }
 @media (max-width: 576px) {
   .business-type .business-icon {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 .business-type .business-icon svg {
@@ -1366,6 +1393,11 @@ section p:last-of-type {
   -webkit-transition: color 0.3s ease-in-out;
   -o-transition: color 0.3s ease-in-out;
   transition: color 0.3s ease-in-out;
+}
+@media (max-width: 576px) {
+  .business-type h4 {
+    font-size: 1.125rem;
+  }
 }
 
 .swiper .swiper-wrapper {
@@ -1860,7 +1892,7 @@ section p:last-of-type {
 .plan .discounted-price span {
   color: #000;
 }
-.plan .discounted-price span:first-of-type {
+.plan .discounted-price span:first-of-type, .plan .discounted-price span:only-of-type {
   line-height: 1.2;
   font-family: "GraphikArabic_SemiBold", sans-serif;
   font-size: 2.125rem;

@@ -361,6 +361,9 @@ section
     @media (max-width: 992px)
         margin-top: rem(30px)
 
+    @media (max-width: 576px)
+        margin-bottom: rem(30px)
+
     h3
         font-family: 'GraphikArabic_Light', sans-serif
         font-size: calc(1.325rem + 1.2vw)
@@ -378,6 +381,9 @@ section
 .hero-subtitle
     margin-bottom: rem(35px)
 
+    @media (max-width: 576px)
+        margin-bottom: rem(20px)
+
     h2
         font-family: 'GraphikArabic_SemiBold', sans-serif
         font-size: calc(1.325rem + 2.6vw)
@@ -394,6 +400,9 @@ section
     display: flex
     align-items: center
     gap: rem(30px)
+
+    @media (max-width: 576px)
+        gap: rem(20px)
 
     .hero &
         @media (max-width: 576px)
@@ -419,8 +428,8 @@ section
     @media (max-width: 992px)
         position: static
         width: 80%
-        margin-inline-start: auto
         margin-top: rem(50px)
+        margin-inline: auto
         transform: translateY(0)
 
     img
@@ -609,6 +618,7 @@ section
             transform: translateY(-240px)
 
         @media (max-width: 992px)
+            margin-inline: auto
             margin-bottom: rem(40px)
 
         .mobile
@@ -621,6 +631,12 @@ section
                 max-width: 100%
 
     &.reports
+        width: max-content
+        padding-inline-end: rem(155px)
+
+        @media (max-width: 992px)
+            margin-inline: auto
+
         .reports-details
             position: relative
             display: inline-flex
@@ -730,7 +746,7 @@ section
     transition: all 0.3s
 
     @media (max-width: 576px)
-        width: 80vw
+        width: 60vw
         height: auto
         aspect-ratio: 1 / 1
 
@@ -748,8 +764,8 @@ section
         height: rem(150px)
 
         @media (max-width: 576px)
-            width: rem(120px)
-            height: rem(120px)
+            width: rem(80px)
+            height: rem(80px)
 
         svg
             width: 100%
@@ -763,6 +779,9 @@ section
         color: rgba(197, 208, 217, 0.8)
         margin-bottom: 0
         transition: color 0.3s ease-in-out
+
+        @media (max-width: 576px)
+            font-size: rem(18px)
 
 .swiper
     .swiper-wrapper
@@ -1079,7 +1098,8 @@ section
         span
             color: #000
 
-            &:first-of-type
+            &:first-of-type,
+            &:only-of-type
                 line-height: 1.2
                 font-family: 'GraphikArabic_SemiBold', sans-serif
                 font-size: rem(34px)
