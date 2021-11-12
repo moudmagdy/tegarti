@@ -1084,6 +1084,9 @@ section
         font-size: rem(14px)
         +var(color, color-text-secondary)
 
+    .price
+        display: none
+
     .price-before-discount
         font-family: 'GraphikArabic_Medium', sans-serif
         +var(color, color-text-secondary)
@@ -1098,15 +1101,15 @@ section
         span
             color: #000
 
+            &:last-of-type
+                font-family: 'GraphikArabic_Medium', sans-serif
+                font-size: rem(12px)
+
             &:first-of-type,
             &:only-of-type
                 line-height: 1.2
                 font-family: 'GraphikArabic_SemiBold', sans-serif
                 font-size: rem(34px)
-
-            &:last-of-type
-                font-family: 'GraphikArabic_Medium', sans-serif
-                font-size: rem(12px)
 
     .btn
         align-self: flex-start

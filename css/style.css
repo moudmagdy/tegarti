@@ -1873,6 +1873,9 @@ section p:last-of-type {
   color: rgba(0, 0, 0, 0.6);
   color: var(--color-text-secondary);
 }
+.plan .price {
+  display: none;
+}
 .plan .price-before-discount {
   font-family: "GraphikArabic_Medium", sans-serif;
   color: rgba(0, 0, 0, 0.6);
@@ -1892,14 +1895,14 @@ section p:last-of-type {
 .plan .discounted-price span {
   color: #000;
 }
+.plan .discounted-price span:last-of-type {
+  font-family: "GraphikArabic_Medium", sans-serif;
+  font-size: 0.75rem;
+}
 .plan .discounted-price span:first-of-type, .plan .discounted-price span:only-of-type {
   line-height: 1.2;
   font-family: "GraphikArabic_SemiBold", sans-serif;
   font-size: 2.125rem;
-}
-.plan .discounted-price span:last-of-type {
-  font-family: "GraphikArabic_Medium", sans-serif;
-  font-size: 0.75rem;
 }
 .plan .btn {
   -ms-flex-item-align: start;
