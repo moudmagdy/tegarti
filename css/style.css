@@ -1183,6 +1183,12 @@ section p:last-of-type {
     margin-inline: auto;
   }
 }
+@media (max-width: 576px) {
+  .features__preview.reports {
+    -webkit-padding-end: 6.5625rem;
+            padding-inline-end: 6.5625rem;
+  }
+}
 .features__preview.reports .reports-details {
   position: relative;
   display: -webkit-inline-box;
@@ -2029,6 +2035,11 @@ section p:last-of-type {
 @media (max-width: 992px) {
   .contact .contact-artwork {
     margin: 0;
+  }
+}
+@media (max-width: 576px) {
+  .contact .contact-artwork {
+    max-width: 80%;
   }
 }
 .contact .contact-artwork::before {

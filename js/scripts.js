@@ -11,6 +11,10 @@ function clickHandler(e) {
     const href = this.getAttribute('href');
     const offsetTop = document.querySelector(href).offsetTop;
 
+    if (document.querySelector('.mobile-menu--shown')) {
+        document.querySelector('body').classList.remove('mobile-menu--shown');
+    }
+
     scroll({
         top: offsetTop,
         behavior: 'smooth'
