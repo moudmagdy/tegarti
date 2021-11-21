@@ -2,7 +2,7 @@ const date = new Date();
 let year = date.getFullYear();
 document.querySelector('.copyrights__year').innerHTML = year;
 
-const navItems = document.querySelectorAll('nav a');
+const navItems = document.querySelectorAll('nav a[href^="#"]');
 for (const item of navItems) {
     item.addEventListener('click', clickHandler);
 }
@@ -62,14 +62,15 @@ function slidePreview() {
         }
     }
 }
-window.addEventListener('scroll', slidePreview);
-
 function stopSlidePreview() {
     if (window.innerWidth >= '992') {
         document.querySelector('.has-two-devices').style.transform = 'translateY(0)';
     }
 }
-window.addEventListener('resize', stopSlidePreview);
+if (document.querySelector('.has-two-devices')) {
+    window.addEventListener('scroll', slidePreview);
+    window.addEventListener('resize', stopSlidePreview);
+}
 
 if (document.querySelector('.swiper')) {
     var swiper = new Swiper('.swiper', {
@@ -100,23 +101,25 @@ if (document.querySelector('.swiper')) {
 // }
 
 const plansCheck = document.querySelector('.plan-switch input[type="checkbox"]');
-plansCheck.addEventListener('change', () => {
-    if (plansCheck.checked) {
-        document.querySelectorAll('.price[data-price="monthly"]').forEach(price => {
-            price.classList.remove('d-block');
-        });
-        document.querySelectorAll('.price[data-price="yearly"]').forEach(price => {
-            price.classList.add('d-block');
-        });
-    } else {
-        document.querySelectorAll('.price[data-price="yearly"]').forEach(price => {
-            price.classList.remove('d-block');
-        });
-        document.querySelectorAll('.price[data-price="monthly"]').forEach(price => {
-            price.classList.add('d-block');
-        });
-    }
-});
+if (plansCheck) {
+    plansCheck.addEventListener('change', () => {
+        if (plansCheck.checked) {
+            document.querySelectorAll('.price[data-price="monthly"]').forEach(price => {
+                price.classList.remove('d-block');
+            });
+            document.querySelectorAll('.price[data-price="yearly"]').forEach(price => {
+                price.classList.add('d-block');
+            });
+        } else {
+            document.querySelectorAll('.price[data-price="yearly"]').forEach(price => {
+                price.classList.remove('d-block');
+            });
+            document.querySelectorAll('.price[data-price="monthly"]').forEach(price => {
+                price.classList.add('d-block');
+            });
+        }
+    });
+}
 
 const planMoreBtns = document.querySelectorAll('.show-more--btn');
 planMoreBtns.forEach(btn => {

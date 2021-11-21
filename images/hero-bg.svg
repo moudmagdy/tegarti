@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1659.716" height="1652.146" viewBox="0 0 1659.716 1652.146">
+    <defs>
+        <clipPath id="clip-path">
+            <ellipse id="Ellipse_629" data-name="Ellipse 629" cx="708.586" cy="703.799" rx="708.586" ry="703.799" transform="translate(0 0)" fill="#fff"/>
+        </clipPath>
+        <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.431" gradientTransform="matrix(1, 0, 0, -1, 0, 1)" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#deebf5"/>
+            <stop offset="0.432" stop-color="#deebf5"/>
+            <stop offset="0.833" stop-color="#deebf5" stop-opacity="0"/>
+            <stop offset="1" stop-color="#c3f0f7" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="radial-gradient-2" cx="0.5" cy="0.5" r="0.413" gradientTransform="matrix(0.999, 0.039, 0.054, -1.391, -0.026, 1.176)" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#c3f0f7"/>
+            <stop offset="0.432" stop-color="#c3f0f7"/>
+            <stop offset="0.833" stop-color="#c3f0f7" stop-opacity="0"/>
+            <stop offset="1" stop-color="#c3f0f7" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <g id="Mask_Group_7" data-name="Mask Group 7" transform="translate(1659.716 1381.737) rotate(169)" clip-path="url(#clip-path)">
+        <g id="Group_15560" data-name="Group 15560" transform="translate(-173.681 -100.088)">
+            <ellipse id="Ellipse_627" data-name="Ellipse 627" cx="881.813" cy="804.264" rx="881.813" ry="804.264" transform="translate(0 0)" fill="url(#radial-gradient)"/>
+            <ellipse id="Ellipse_628" data-name="Ellipse 628" cx="498.191" cy="410.633" rx="498.191" ry="410.633" transform="translate(296.083 204.229)" fill="url(#radial-gradient-2)"/>
+        </g>
+    </g>
+</svg>

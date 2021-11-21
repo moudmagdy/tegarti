@@ -307,6 +307,11 @@ section
         &:last-of-type
             margin-bottom: rem(30px)
 
+.home-page
+    section
+        p
+            max-width: rem(500px)
+
 .hero
     position: relative
     min-height: 100vh
@@ -323,20 +328,23 @@ section
         height: 80vh
         background-image: linear-gradient(#F4F7F9, #F5F7F9, #FFFFFF)
         opacity: 0.6
-        z-index: -2
+        z-index: -1
 
     &::after
         content: ""
         position: absolute
-        left: -60%
-        bottom: -100%
-        width: rem(1800px)
+        left: 0
+        bottom: 0
+        height: 100%
         aspect-ratio: 1 / 1
-        background-image: url(../images/orb-purple.svg)
+        background-image: url(../images/hero-bg.svg)
         background-repeat: no-repeat
-        background-size: cover
+        background-size: 140%
         background-position: center center
         z-index: -1
+
+        @media (max-width: 992px)
+            background-size: 100%
 
 .hero-data
     display: flex
@@ -385,7 +393,7 @@ section
         margin-bottom: rem(20px)
 
     h2
-        font-family: 'GraphikArabic_SemiBold', sans-serif
+        font-family: 'GraphikArabic_Medium', sans-serif
         font-size: calc(1.325rem + 2.6vw)
         +var(color, color-brand)
         z-index: 1
@@ -447,10 +455,15 @@ section
         @media (max-width: 992px)
             margin-top: rem(50px)
 
+    h3
+        @media (max-width: 576px)
+            text-align: center
+
 .features__tabs
     display: flex
     flex-wrap: wrap
     gap: rem(25px)
+    max-width: rem(500px)
     margin-bottom: rem(40px)
 
     a
@@ -555,7 +568,9 @@ section
 
     img
         width: 100%
+        min-width: 100%
         height: 100%
+        min-height: 100%
 
 .laptop
     position: relative
@@ -579,13 +594,14 @@ section
         position: absolute
         left: rem(-18px)
         right: rem(-18px)
-        bottom: rem(-18px)
+        bottom: rem(-19px)
         height: rem(18px)
         background-image: url(../images/laptop-footer.svg)
         background-repeat: no-repeat
 
 .laptop__screen
     width: 100%
+    min-width: 100%
     aspect-ratio: 1.73 / 1
     background-color: #fff
     overflow: hidden
@@ -633,9 +649,7 @@ section
     &.reports
         width: max-content
         padding-inline-end: rem(155px)
-
-        @media (max-width: 992px)
-            margin-inline: auto
+        margin-inline: auto
 
         @media (max-width: 576px)
             padding-inline-end: rem(105px)
@@ -643,10 +657,9 @@ section
         .reports-details
             position: relative
             display: inline-flex
-            padding-inline-start: rem(60px)
 
-            @media (max-width: 992px)
-                padding-inline-start: 0
+            .mobile__screen
+                max-width: rem(210px)
 
             .report-chart,
             .report-shift-opened,
@@ -666,18 +679,18 @@ section
 
             .report-shift-opened,
             .report-shift-closed
-                max-width: rem(200px)
+                max-width: rem(205px)
 
                 @media (max-width: 576px)
                     max-width: rem(150px)
 
             .report-shift-opened
                 inset-inline-start: calc(100% - 70px)
-                top: rem(55px)
+                top: rem(60px)
 
             .report-shift-closed
                 inset-inline-start: calc(100% - 45px)
-                top: rem(85px)
+                top: rem(90px)
 
         .mobile
             width: max-content
@@ -700,9 +713,13 @@ section
         width: 100%
 
 .reports-count
+    display: block
     font-family: 'GraphikArabic_SemiBold', sans-serif
     font-size: rem(80px)
     line-height: 1.1
+
+    @media (max-width: 576px)
+        text-align: center
 
 .download-btns
     display: flex
@@ -1097,22 +1114,32 @@ section
 
     .discounted-price
         display: flex
+        flex-wrap: wrap
         align-items: baseline
         gap: rem(5px)
+        min-height: rem(65px)
         margin-bottom: rem(30px)
 
-        span
+        .currency,
+        .price-amount,
+        .annual-payment
             color: #000
 
-            &:last-of-type
-                font-family: 'GraphikArabic_Medium', sans-serif
-                font-size: rem(12px)
+        .currency,
+        .annual-payment
+            font-family: 'GraphikArabic_Medium', sans-serif
+            font-size: rem(12px)
 
-            &:first-of-type,
-            &:only-of-type
-                line-height: 1.2
-                font-family: 'GraphikArabic_SemiBold', sans-serif
-                font-size: rem(34px)
+        .price-amount
+            line-height: 1.2
+            font-family: 'GraphikArabic_SemiBold', sans-serif
+            font-size: rem(34px)
+
+        .annual-payment
+            flex: 1 1 100%
+
+            span
+                +var(color, color-brand)
 
     .btn
         align-self: flex-start
@@ -1197,10 +1224,8 @@ section
         margin-inline-end: rem(60px)
 
         @media (max-width: 992px)
-            margin: 0
-
-        @media (max-width: 576px)
-            max-width: 80%
+            max-width: 60%
+            margin: 0 auto
 
         &::before
             content: ""
@@ -1216,12 +1241,19 @@ section
         line-height: 1
         margin-bottom: rem(5px)
 
+        @media (max-width: 576px)
+            text-align: center
+
     .full-support
         display: block
         line-height: 1.2
         font-family: 'GraphikArabic_SemiBold', sans-serif
         font-size: rem(90px)
         margin-bottom: rem(40px)
+
+        @media (max-width: 576px)
+            font-size: rem(70px)
+            text-align: center
 
 footer
     display: flex
@@ -1247,6 +1279,7 @@ footer
         text-align: center
 
     h3
+        font-family: 'GraphikArabic_Medium', sans-serif
         font-size: calc(1.375rem + 1.7vw)
         margin-bottom: rem(15px)
 
@@ -1377,6 +1410,42 @@ footer
                     width: rem(1.5px)
                     height: rem(12px)
                     background-color: #C3F0F7
+
+.inner-page
+    section
+        position: relative
+        background-image: url()
+        overflow: hidden
+        z-index: 1
+        padding: rem(145px) 0 rem(100px)
+
+        &::before,
+        &::after
+            content: ""
+            position: absolute
+
+        &::before
+            inset: 0
+            opacity: 0.75
+            background-image: radial-gradient(#F4F7F9 0%, #F5F7F9 60%, #FFFFFF 100%)
+            z-index: -1
+
+        &::after
+            top: 50%
+            inset-inline-start: 0
+            width: 100%
+            height: 100%
+            background-image: url(../images/inner-page-bg.svg)
+            background-repeat: no-repeat
+            background-size: 80%
+            background-position: right center
+            z-index: -1
+            transform: translate(-60%, -50%)
+
+        h1
+            font-size: calc(1rem + 1.5vw)
+            text-align: center
+            margin-bottom: rem(40px)
 
 @media (prefers-reduced-data: reduce)
     :root :is(img, video)
